@@ -1,0 +1,2 @@
+# minneMUDAC
+Minnesota Data Challenge
