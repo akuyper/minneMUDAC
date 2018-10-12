@@ -1,2 +1,3 @@
-# minneMUDAC
-Minnesota Data Challenge
+# minneMUDAC (Minnesota Data Challenge)
+
+Northwestern's Undergraduate Team for minneMUDAC challenge.
