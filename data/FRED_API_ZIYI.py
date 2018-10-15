@@ -35,9 +35,7 @@ ct_names = pd.read_csv(path)
 start = datetime.datetime(1991, 1, 1)
 end = datetime.datetime(2018, 10, 15)
 
-for i in range(ct_names.shape[0]):
-    data_total = pd.DataFrame()
-    
+for i in range(ct_names.shape[0]):    
     county = ct_names.iloc[i,1]
     search_term = county + ', MN'
     d = search(search_term)
