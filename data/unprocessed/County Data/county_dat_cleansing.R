@@ -92,6 +92,8 @@ combined_counties <- bind_rows(county_dat_renamed) %>%
   summarise_all(.funs = funs(mean(., na.rm = TRUE))) %>%
   left_join(county_ids, by = c("county" = "COUNTYNAME"))
 
+var_descs <- names(combined_counties)
+
 # renames features to shortened description
 var_names <- c(
   "year", "county", "undergrad", "unemplyoment", "income_percap",
@@ -109,7 +111,6 @@ names(combined_counties) <- var_names
 
 
 ## create variable description table
-var_descs <- names(combined_counties)
 varID <- description_dat %>%
   filter(!str_detect(ID, "CI[L|U]B")) %>% 
   distinct(Title, .keep_all = TRUE) %>%
@@ -117,9 +118,9 @@ varID <- description_dat %>%
   as_vector()
 
 variable_descriptions <- tibble(
-  name <- var_names,
-  description <- var_descs,
-  varID_guess <- varID
+  name = var_names,
+  description = var_descs,
+  varID_guess = varID
 )
 
 
