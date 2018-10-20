@@ -118,9 +118,9 @@ varID <- description_dat %>%
   as_vector()
 
 variable_descriptions <- tibble(
-  name <- var_names,
-  description <- var_descs,
-  varID_guess <- varID
+  name = var_names,
+  description = var_descs,
+  varID_guess = varID
 )
 
 

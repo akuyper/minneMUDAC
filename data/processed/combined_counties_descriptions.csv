@@ -1,4 +1,4 @@
-name <- var_names,description <- var_descs,varID_guess <- varID
+name,description,varID_guess
 year,Year,MNHENN3URN
 county,county,S1101SPHOUSE027123
 undergrad,Bachelor's Degree or Higher (5-year estimate),MHIMN27053A052NCEN
