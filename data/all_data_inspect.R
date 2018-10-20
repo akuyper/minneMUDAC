@@ -1,4 +1,4 @@
-#### Quick Overview of 2014_general_results.xlsx
+#### Quick Overview of  all general results
 
 # Load packages
 library(tidyverse)
