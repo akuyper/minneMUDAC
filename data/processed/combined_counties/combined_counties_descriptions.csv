@@ -1,0 +1,44 @@
+name,description,varID_guess
+year,Year,MNHENN3URN
+county,county,S1101SPHOUSE027123
+undergrad,Bachelor's Degree or Higher (5-year estimate),MHIMN27053A052NCEN
+unemplyoment,Unemployment Rate,ATNHPIUS27053A
+income_percap,Per Capita Personal Income,S1701ACS027053
+civ_labor,Civilian Labor Force,CBR27053MNA647NCEN
+race_white,Population Estimate of Non-Hispanic White Persons,B01002001E027013
+income_med,Estimate of Median Household Income,CDC20N2UAA027053
+income_person,Personal Income,B03002003E027019
+pop_res,Resident Population,PPAAMN27053A156NCEN
+net_mig,Net Migration Flow,PUAAMN27053A647NCEN
+homeowner,Homeownership Rate,NETMIGNACS027053
+crime,Combined Violent and Property Crime Incidents Known to Law Enforcement,2020RATIO027053
+racical_dissim,White to Non-White Racial Dissimilarity Index,PCPI27053
+snap,SNAP Benefits Recipients,MNCARV9POP
+inc_ineq,Income Inequality,B14005DCYACS027053
+discon_yth,Disconnected Youth,HOWNRATEACS027123
+burd_house,Burdened Households,MWACL27053
+pre_death,Premature Death Rate,B080ACS027019
+patents,New Patent Assignments,B03002006E027019
+poverty,"Poverty Universe, All Ages",B03002012E027019
+age_med,Median Age of the Population,B03002004E027019
+commute,Mean Commuting Time,B03002005E027019
+age_pre_death,Age-Adjusted Premature Death Rate,EQFXSUBPRIME027019
+at_hpi,All-Transactions House Price Index,HC01ESTVC1727053
+eq_sprime,Equifax Subprime Credit Population,CDC20N2U027053
+poverty_perc,Percent of Population Below the Poverty Level,DP04ACS027123
+hisp_latin,Population Estimate of Hispanic or Latino Persons,BPPRIV027171
+privat_ests,Number of Private Establishments,USPTOISSUED027123
+buildings,New Private Housing Structures Authorized by Building Permits,FBITC027123
+poverty_u18,"Poverty Universe, Age 0-17",PEAAMN27171A647NCEN
+house_singp,Single-parent Households with Children as a Percentage of Households with Children,MNRAMS3LFN
+pop_est,Estimate of People of All Ages,DMPCRATE027025
+pop_perc,Estimated Percent of People of All Ages,ENU2702520510
+prevent_admin,Rate of Preventable Hospital Admissions,PEU18MN27171A647NCEN
+assoc_deg,People 25 Years and Over Who Have Completed an Associate's Degree or Higher (5-year estimate),PI27171
+rel_chil_518,Estimate of Related Children Age 5-17,RACEDISPARITY027019
+prec_rel_chil_518,Estimated Percent of Related Children Age 5-17,S1501ACSTOTAL027053
+pop_u18,Estimate of People Age 0-17,PPU18MN27037A156NCEN
+perc_pop_u18,Estimated Percent of People Age 0-17,HC01ESTVC1627003
+real_wage_coladj,Mean Real Wages Adjusted by Cost of Living,PE5T17MN27053A647NCEN
+date,DATE,PUA0T17MN27059A647NCEN
+countycode,COUNTYCODE,PP5T17MN27139A156NCEN
