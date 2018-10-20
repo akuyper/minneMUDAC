@@ -21,7 +21,8 @@ county_dat <- map(files, read_csv)
 description_dat <- read_csv("./data/unprocessed/MN_potential_data_list.csv") %>%
   filter(str_detect(Title, "County"))
 
-# remove county qualifier from Title
+
+## remove county qualifier from Title
 short_title <- vector("character", dim(description_dat)[1])
 Title <- description_dat %>% select(Title) %>% as_vector()
 for(i in 1:dim(description_dat)[1]){
@@ -33,7 +34,10 @@ description_dat <- description_dat %>%
 
 
 ## rename features to short title
+
 Title <- description_dat %>% select(Title) %>% unique() %>% as_vector()
+
+# extract variable ID to match with
 identifiers <- c(
     "URN$|^LAUCN",
     "SPHOUSE",
@@ -79,6 +83,7 @@ identifiers <- c(
     "^PUA0T17MN",
     "^PP5T17MN27"
 )
+# corresponds to index in Title
 identifier_id <- c(1:37, 40:42, 44:45, 47)
 
 county_dat_renamed <- vector("list", 87)
@@ -91,7 +96,8 @@ for(i in 1:length(county_dat)){
       
       if(str_detect(vars[j], identifiers[k])){
         vars[j] <- Title[identifier_id[k]]
-      } 
+      }
+      # ID CI bound data as bad data
       if(str_detect(vars[j], "CI[L|U]B")) {
         vars[j] <- "BAD"
       }
@@ -111,4 +117,5 @@ combined_counties <- bind_rows(county_dat_renamed) %>%
   summarise_all(.funs = funs(mean(., na.rm = TRUE))) %>%
   left_join(county_ids, by = c("county" = "COUNTYNAME"))
 
+# write to csv
 write_csv(combined_counties, "./data/processed/combined_counties.csv")
