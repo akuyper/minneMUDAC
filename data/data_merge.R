@@ -19,7 +19,8 @@ comp_dat <- results %>%
 # add 2016 st louis county data
 comp_dat <- comp_dat %>% 
   mutate(unemplyoment = if_else(is.na(unemplyoment), 5.7, unemplyoment),
-         pres = if_else(year %% 4 == 0, 1, 0))
+         pres = if_else(year %% 4 == 0, 1, 0)) %>% 
+  rename(unemployment = unemplyoment)
 
 # write data
 write_rds(comp_dat, "./data/processed/competition_data.rds")
