@@ -14,7 +14,7 @@ comp_dat <- results %>%
   filter(!is.na(eq_sprime)) %>% 
   filter(year >= 2010) %>% 
   # remove missing 
-  select(-snap, -poverty_perc, -net_mig, -prevent_admin, -real_wage_coladj, -patents, -crime, -civ_labor, -at_hpi)
+  select(-snap, -poverty_perc, -net_mig, -prevent_admin, -real_wage_coladj, -patents, -crime, -civ_labor, -at_hpi, -pre_death, -age_pre_death)
 
 # add 2016 st louis county data
 comp_dat <- comp_dat %>% 
