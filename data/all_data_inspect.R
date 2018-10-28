@@ -54,43 +54,43 @@ dat2008 <- read_xls("data/unprocessed/2008_general_results.xls") %>%
   select(year,precinct_name,prct,county_id,cg,mail_ballot,x7am,edr,signatures,reg_mil_ab,tot_voters) 
 names(dat2008) <- names(dat2016) 
 
-dat2006 <- read_xls("data/unprocessed/2006_general_results.xls") %>% 
-  clean_names() %>% 
-  remove_empty("cols") %>%  
-  add_column(year=2006) %>% 
-  add_column(mail_ballot=NA) %>% 
-  select(year,precinct_name,prct,county_id,cg,mail_ballot,registered_at_7am,edr,signature,reg_mil_ab,tot_voters) 
-names(dat2006) <- names(dat2016) 
+# dat2006 <- read_xls("data/unprocessed/2006_general_results.xls") %>% 
+#   clean_names() %>% 
+#   remove_empty("cols") %>%  
+#   add_column(year=2006) %>% 
+#   add_column(mail_ballot=NA) %>% 
+#   select(year,precinct_name,prct,county_id,cg,mail_ballot,registered_at_7am,edr,signature,reg_mil_ab,tot_voters) 
+# names(dat2006) <- names(dat2016) 
+# 
+# dat2004 <- read_xls("data/unprocessed/2004_general_results.xls") %>% 
+#   clean_names() %>% 
+#   remove_empty("cols") %>% 
+#   add_column(year=2004) %>% 
+#   add_column(mail_ballot=NA) %>% 
+#   select(year,precinct_name,prct,cc,cg,mail_ballot,x7am,edr,sigs,reg_mil_ab,tot_voters) 
+# names(dat2004) <- names(dat2016) 
+# 
+# dat2002 <- read_xls("data/unprocessed/2002_general_results.xls") %>% 
+#   clean_names() %>% 
+#   remove_empty("cols") %>% 
+#   add_column(year=2002) %>% 
+#   add_column(mail_ballot=NA) %>% 
+#   select(year,precinct_name,prct,cc,cg,mail_ballot,x7am,edr,signatures,ab_reg,ballots) 
+# names(dat2002) <- names(dat2016) 
+# 
+# dat2000 <- read_xls("data/unprocessed/2000_general_results.xls") %>% 
+#   clean_names() %>% 
+#   remove_empty("cols") %>% 
+#   add_column(year=2000) %>% 
+#   add_column(mail_ballot=NA) %>% 
+#   select(year,precinct_name,prct,cc,cg,mail_ballot,x7am,new,sign,reg_a,totl) 
+# names(dat2000) <- names(dat2016) 
 
-dat2004 <- read_xls("data/unprocessed/2004_general_results.xls") %>% 
-  clean_names() %>% 
-  remove_empty("cols") %>% 
-  add_column(year=2004) %>% 
-  add_column(mail_ballot=NA) %>% 
-  select(year,precinct_name,prct,cc,cg,mail_ballot,x7am,edr,sigs,reg_mil_ab,tot_voters) 
-names(dat2004) <- names(dat2016) 
+dat20082016 <-rbind(dat2008,dat2010,dat2012,dat2014,dat2016)
 
-dat2002 <- read_xls("data/unprocessed/2002_general_results.xls") %>% 
-  clean_names() %>% 
-  remove_empty("cols") %>% 
-  add_column(year=2002) %>% 
-  add_column(mail_ballot=NA) %>% 
-  select(year,precinct_name,prct,cc,cg,mail_ballot,x7am,edr,signatures,ab_reg,ballots) 
-names(dat2002) <- names(dat2016) 
-
-dat2000 <- read_xls("data/unprocessed/2000_general_results.xls") %>% 
-  clean_names() %>% 
-  remove_empty("cols") %>% 
-  add_column(year=2000) %>% 
-  add_column(mail_ballot=NA) %>% 
-  select(year,precinct_name,prct,cc,cg,mail_ballot,x7am,new,sign,reg_a,totl) 
-names(dat2000) <- names(dat2016) 
-
-dat20002016 <-rbind(dat2000,dat2002,dat2004,dat2006,dat2008,dat2010,dat2012,dat2014,dat2016)
-
-dat20002016$mailballot<-ifelse(dat20002016$year>=2010 & is.na(dat20002016$mailballot),"NO",dat20002016$mailballot)
+dat20002016$mailballot<-ifelse(dat20082016$year>=2010 & is.na(dat20082016$mailballot),"NO",dat20082016$mailballot)
   
-write_csv(dat20002016,"data/processed/2000_2016_general_result.csv",na="NA")
+write_csv(dat20082016,"data/processed/2008_2016_general_result.csv",na="NA")
 
 # dat1998 <- read_xls("data/unprocessed/1998_general_results.xls") %>% 
 #   clean_names() %>% 
