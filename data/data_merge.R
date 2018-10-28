@@ -16,6 +16,14 @@ comp_dat <- results %>%
   # remove missing 
   select(-snap, -poverty_perc, -net_mig, -prevent_admin, -real_wage_coladj, -patents, -crime, -civ_labor, -at_hpi)
 
+# add 2016 st louis county data
+comp_dat <- comp_dat %>% 
+  mutate(unemplyoment = if_else(is.na(unemplyoment), 5.7, unemplyoment))
+
+# write data
+write_rds(comp_dat, "./data/processed/competition_data.rds")
+
+# check for completeness among variables
 year_check <- function(var){
   comp_dat %>% 
     select(var, year) %>% 
@@ -62,7 +70,5 @@ percent_missing_plot <- var_p_na %>%
     size = "percent missing",
     title = "Percentage of Missing Values"
   )
-
-write_rds(comp_dat, "./data/processed/competition_data.rds")
 
 
