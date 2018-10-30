@@ -8,7 +8,7 @@ library(skimr)
 results <- read_csv("./data/processed/2008_2016_general_result.csv")
 county_acs <- read_csv("./data/processed/combined_counties/combined_counties.csv")
 
-# join and cleanse
+# join and cleanse for even numbered years
 comp_dat <- results %>% 
   left_join(county_acs, by = c("countycode", "year")) %>% 
   filter(!is.na(eq_sprime)) %>% 
@@ -22,12 +22,30 @@ comp_dat <- comp_dat %>%
          pres = if_else(year %% 4 == 0, 1, 0)) %>% 
   rename(unemployment = unemplyoment)
 
+# join and cleanse for all years 2010-present
+# odd number election results will be NA
+county_all <- county_acs %>% 
+  filter(year >= 2010, year < 2018) %>% 
+  mutate(unemplyoment = if_else(is.na(unemplyoment) & year == 2016, 5.7, unemplyoment),
+         unemplyoment = if_else(is.na(unemplyoment) & year == 2017, 4.6, unemplyoment),
+         pres = if_else(year %% 4 == 0, 1, 0),
+         cong = if_else(year %% 2 == 0, 1, 0)) %>% 
+  rename(unemployment = unemplyoment)
+
+comp_dat_full <- results %>%
+  filter(year >= 2010) %>% 
+  full_join(county_all, by = c("countycode", "year")) %>%
+  filter(!is.na(eq_sprime)) %>%
+  select(-snap, -poverty_perc, -net_mig, -prevent_admin, -real_wage_coladj, -patents, -crime, -civ_labor, -at_hpi, -pre_death, -age_pre_death)
+  
+
 # write data
 write_rds(comp_dat, "./data/processed/competition_data.rds")
+write_rds(comp_dat_full, "./data/processed_competition_data_oddyears.rds")
 
 # check for completeness among variables
 year_check <- function(var){
-  comp_dat %>% 
+  comp_dat_full %>% 
     select(var, year) %>% 
     remove_missing() %>% 
     group_by(year) %>% 
@@ -35,7 +53,7 @@ year_check <- function(var){
     mutate(var = var)
 }
 
-vars <- names(comp_dat)
+vars <- names(comp_dat_full)
 
 var_ranges <- bind_rows(map(vars, year_check)) %>% 
   group_by(var) %>% 
@@ -52,7 +70,7 @@ var_range_plot <- var_ranges %>%
   )
 
 perc_missing <- function(var){
-  comp_dat %>% 
+  comp_dat_full %>% 
     select(var, year) %>% 
     group_by(year) %>% 
     summarise(pna = sum(is.na(get(var)))/87) %>% 
@@ -73,4 +91,5 @@ percent_missing_plot <- var_p_na %>%
     title = "Percentage of Missing Values"
   )
 
-
+comp_dat_full %>% 
+  filter(year == 2010, is.na(unemployment))
