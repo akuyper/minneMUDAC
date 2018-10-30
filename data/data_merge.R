@@ -41,7 +41,7 @@ comp_dat_full <- results %>%
 
 # write data
 write_rds(comp_dat, "./data/processed/competition_data.rds")
-write_rds(comp_dat_full, "./data/processed_competition_data_oddyears.rds")
+write_rds(comp_dat_full, "./data/processed/competition_data_oddyears.rds")
 
 # check for completeness among variables
 year_check <- function(var){
