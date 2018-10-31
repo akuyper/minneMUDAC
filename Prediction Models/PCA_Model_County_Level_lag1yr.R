@@ -1,4 +1,4 @@
-#### Lasso&Ridge Model (County Level) using prev 1year data
+#### PCA Model (County Level) using prev 1year data
 #### Ziyi Lu
 
 # Load Packages
@@ -6,7 +6,8 @@ library(tidyverse)
 library(janitor)
 library(skimr)
 library(readxl)
-library(glmnet)
+library(pls)
+library(rpart)
 
 # Load Voting Data (even years)
 totvoting_2012 <- read_xlsx("data/unprocessed/2012_general_results.xlsx") %>% 
@@ -65,28 +66,49 @@ dat2015 <- data %>%
   summarise_all(sum)
 df2016 <- unique(inner_join(dat2015,totvoting_2016, by = "countycode"))
 
-df <- bind_rows(df2012, df2014, df2016)[,-1]
+df <- bind_rows(df2012, df2014, df2016)[,-1] %>% select_if(~sum(.) > 0)
 
 #### Preparing training and testing sets
 x <- model.matrix(TOTVOTING~., df)[,-1]
 y <- df$TOTVOTING
 
 set.seed(1)
-train = sample(1:nrow(x), nrow(x)/2)
-test = (-train)
-ytest = y[test]
-lambda <- 10^seq(10, -2, length = 100)
+train <- sample(1:nrow(x), nrow(x)/2)
+test <- (-train)
+ytest <- y[test]
+ytrain <- y[train]
 
-#### Models
-ridge_mod <- glmnet(x[train,], y[train], alpha = 0, lambda = lambda)
-lasso_mod <- glmnet(x[train,], y[train], alpha = 1, lambda = lambda)
-cv_out <- cv.glmnet(x[train,], y[train], alpha = 0)
-bestlam <- cv_out$lambda.min
+#### PCA Model
+pca_model <- prcomp(x[train,], scale = TRUE)
 
-# make predictions
-ridge_pred <- predict(ridge_mod, s = bestlam, newx = x[test,])
-lasso_pred <- predict(lasso_mod, s = bestlam, newx = x[test,])
+#### Decide number of PCs to use
+#compute standard deviation of each principal component
+std_dev <- pca_model$sdev
+#compute variance
+pr_var <- std_dev^2
+#proportion of variance explained
+prop_varex <- pr_var/sum(pr_var)
+#scree plot
+#should use 2 PC
+plot(prop_varex, xlab = "Principal Component", ylab = "Proportion of Variance Explained",type = "b")
 
+
+#### LM method
+train_pcs <- pca_model$x[,1:2]
+lm.model <- lm(ytrain ~ train_pcs)
+lm_coef <- as.matrix(lm.model$coefficients)
+test_pcs <- as.data.frame(predict(pca_model, x[test,])[,1:2])
+test_data <- as.matrix(data.frame(1, test_pcs))
+lm.prediction <- test_data %*% lm_coef
 # Absolute percent error
-sum(abs(ridge_pred-ytest)/ytest) # 91.83608
-sum(abs(lasso_pred-ytest)/ytest) # 542.3697
+sum(abs(lm.prediction-ytest)/ytest) #168.4425
+
+#### Regression Tree
+train.data <- data.frame(ytrain, pca_model$x)[,1:2]
+rpart.model <- rpart(ytrain ~ .,data = train.data, method = "anova")
+plotcp(rpart.model) 
+test.data <- predict(pca_model, newdata = data.frame(ytest, x[test,]))
+test.data <- as.data.frame(test.data)[,1:2]
+rpart.prediction <- predict(rpart.model, test.data)
+# Absolute percent error
+sum(abs(rpart.prediction-ytest)/ytest) #149.6199
