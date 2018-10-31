@@ -38,8 +38,11 @@ comp_dat_full <- results %>%
   filter(!is.na(eq_sprime)) %>%
   select(-snap, -poverty_perc, -net_mig, -prevent_admin, -real_wage_coladj, -patents, -crime, -civ_labor, -at_hpi, -pre_death, -age_pre_death)
   
+county_all <- county_all %>% 
+  select(-snap, -poverty_perc, -net_mig, -prevent_admin, -real_wage_coladj, -patents, -crime, -civ_labor, -at_hpi, -pre_death, -age_pre_death)
 
 # write data
+write_rds(county_all, "./data/processed/all_county.rds")
 write_rds(comp_dat, "./data/processed/competition_data.rds")
 write_rds(comp_dat_full, "./data/processed/competition_data_oddyears.rds")
 
