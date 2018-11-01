@@ -24,6 +24,8 @@ countyid$countycode[69]=69
 adjustments <- left_join(may_nov_data,countyid,by="county") %>% 
   select(countycode,county,adjustment18)
 
+adjustments$countycode[adjustments$county=='saint louis']=69
+
 adjustments<-adjustments[-nrow(adjustments),]
 
 #load precinct 2018may
@@ -41,6 +43,7 @@ voter2018<- left_join(precinct2018,adjustments,by="countycode") %>%
   add_column(year=2018)
 
 voter2018=voter2018[,-1] 
+voter2018=voter2018[-nrow(voter2018),]
 
 saveRDS(voter2018, file = "data/processed/voter2018.rds")
 
