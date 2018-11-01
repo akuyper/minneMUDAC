@@ -17,7 +17,7 @@ df2012 <- data %>%
   filter(year == 2012) %>% 
   select(-year,-pctcode,-pres) %>% 
   group_by(congdist,countycode) %>%
-  summarise_all(sum) %>% 
+  summarise_all(mean) %>% 
   select_if(~sum(.) > 0) %>% 
   arrange(countycode) %>% 
   ungroup() 
@@ -26,7 +26,7 @@ df2014 <- data %>%
   filter(year == 2014) %>% 
   select(-year,-pctcode,-pres) %>% 
   group_by(congdist,countycode) %>%
-  summarise_all(sum) %>% 
+  summarise_all(mean) %>% 
   select_if(~sum(.) > 0) %>% 
   arrange(countycode)%>% 
   ungroup() 
@@ -35,7 +35,7 @@ df2016 <- data %>%
   filter(year == 2016) %>% 
   select(-year,-pctcode,-pres) %>% 
   group_by(congdist,countycode) %>%
-  summarise_all(sum) %>% 
+  summarise_all(mean) %>% 
   select_if(~sum(.) > 0) %>% 
   arrange(countycode)%>% 
   ungroup() 
@@ -65,9 +65,9 @@ lapply(df_list, function(x) {
   sum(total_result)})
 
 # [LM Model Absolute percent error]
-# [2012] 33.23076
-# [2014] 35.70696
-# [2016] 32.96768
+# [2012] 32.70312
+# [2014] 35.10937
+# [2016] 32.4536
 
 # df2012[train,] %>% 
 #   select(-countycode,-congdist) %>% 
