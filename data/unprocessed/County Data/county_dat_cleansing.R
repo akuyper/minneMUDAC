@@ -81,22 +81,47 @@ for(i in 1:length(county_dat)){
   county_dat_renamed[i][[1]] <- dat
 }
 
-
 # combine renamed county data into one tibble
 # add county id column
 # summarise by yearly average per county 
+
 combined_counties <- bind_rows(county_dat_renamed) %>%
   select(contains(" "), DATE, county) %>%
-  mutate(Year = year(DATE)) %>% 
-  group_by(Year, county) %>% 
+  mutate(year = year(DATE)) %>% 
+  group_by(year, county) %>% 
   summarise_all(.funs = funs(mean(., na.rm = TRUE))) %>%
   left_join(county_ids, by = c("county" = "COUNTYNAME"))
+
+# use august values
+unemployment <- bind_rows(county_dat_renamed) %>%
+  select(contains(" "), DATE, county) %>%
+  mutate(year = year(DATE),
+         month = month(DATE)) %>% 
+  select(`Unemployment Rate`, month, year, county) %>% 
+  filter(month == 8) %>% select(-month)
+
+civ_labor <- bind_rows(county_dat_renamed) %>%
+  select(contains(" "), DATE, county) %>%
+  mutate(year = year(DATE),
+         month = month(DATE)) %>% 
+  select(`Civilian Labor Force`, month, year, county) %>% 
+  filter(month == 8) %>% select(-month)
+
+combined_counties_aug <- bind_rows(county_dat_renamed) %>%
+  select(contains(" "), DATE, county) %>%
+  mutate(year = year(DATE)) %>% 
+  group_by(year, county) %>% 
+  summarise_all(.funs = funs(mean(., na.rm = TRUE))) %>%
+  left_join(county_ids, by = c("county" = "COUNTYNAME")) %>% 
+  select(-`Unemployment Rate`, -`Civilian Labor Force`) %>% 
+  left_join(unemployment, by = c("county", "year")) %>% 
+  left_join(civ_labor, by = c("county", "year"))
 
 var_descs <- names(combined_counties)
 
 # renames features to shortened description
 var_names <- c(
-  "year", "county", "undergrad", "unemplyoment", "income_percap",
+  "year", "county", "undergrad", "unemployment", "income_percap",
   "civ_labor", "race_white", "income_med", "income_person", "pop_res",
   "net_mig", "homeowner", "crime", "racical_dissim", "snap", "inc_ineq",
   "discon_yth", "burd_house", "pre_death", "patents", "poverty", "age_med",
@@ -107,8 +132,20 @@ var_names <- c(
   "date", "countycode"
 )
 
-names(combined_counties) <- var_names
+var_names_aug <- c(
+  "year", "county", "undergrad", "income_percap",
+  "race_white", "income_med", "income_person", "pop_res",
+  "net_mig", "homeowner", "crime", "racical_dissim", "snap", "inc_ineq",
+  "discon_yth", "burd_house", "pre_death", "patents", "poverty", "age_med",
+  "commute", "age_pre_death", "at_hpi", "eq_sprime", "poverty_perc",
+  "hisp_latin", "privat_ests", "buildings", "poverty_u18", "house_singp",
+  "pop_est", "pop_perc", "prevent_admin", "assoc_deg", "rel_chil_518",
+  "prec_rel_chil_518", "pop_u18", "perc_pop_u18", "real_wage_coladj",
+  "date", "countycode", "unemployment", "civ_labor"
+)
 
+names(combined_counties) <- var_names
+names(combined_counties_aug) <- var_names
 
 ## create variable description table
 varID <- description_dat %>%
@@ -126,4 +163,5 @@ variable_descriptions <- tibble(
 
 ## write files to csv
 write_csv(combined_counties, "./data/processed/combined_counties.csv")
+write_csv(combined_counties_aug, "./data/processed/combined_counties_aug.csv")
 write_csv(variable_descriptions, "./data/processed/combined_counties_descriptions.csv")
