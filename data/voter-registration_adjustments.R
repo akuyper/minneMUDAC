@@ -1,5 +1,6 @@
 library(tidyverse)
 library(janitor)
+library(readxl)
 
 may_nov_data <- read_xlsx("data/unprocessed/minnesota-voter-registration-by-county-since-2000.xlsx")%>% 
   clean_names() 
@@ -25,12 +26,19 @@ adjustments<-adjustments[-nrow(adjustments),]
 
 #load precinct 2018may
 precinct2018 <- read_xlsx("data/unprocessed/may-1-2018-registered-voter-counts-by-precinct-split.xlsx") %>% 
-  clean_names()
+  clean_names() %>% 
+  group_by(county_id,county_name,precinct_code,precinct_name) %>% 
+  summarise(registered_voters=sum(registered_voters))
+
 colnames(precinct2018)[1]="countycode"
 
 voter2018<- left_join(precinct2018,adjustments,by="countycode") %>% 
   select(countycode,county_name,precinct_code,precinct_name,registered_voters,adjustment18) %>% 
-  mutate(estimated_registered_voters=registered_voters*adjustment18)
+  mutate(estimated_registered_voters=registered_voters*adjustment18) %>% 
+  select(-registered_voters,-adjustment18) %>% 
+  add_column(year=2018)
+
+voter2018 <- voter2018[-nrow(voter2018),]
 
 saveRDS(voter2018, file = "data/processed/voter2018.rds")
 
