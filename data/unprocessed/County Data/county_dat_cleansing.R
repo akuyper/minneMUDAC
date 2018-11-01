@@ -16,6 +16,8 @@ county_ids <- read_xlsx(
   mutate(COUNTYNAME = toupper(COUNTYNAME)) %>% 
   unique()
 
+write_csv(county_ids, "./data/processed/countycodes.csv")
+
 # county data
 county_dat <- map(files, read_csv)
 
