@@ -40,14 +40,10 @@ df2016 <- data %>%
   arrange(countycode)%>% 
   ungroup() 
 
-#df_2012to2016 <- bind_rows(df2012, df2014, df2016)
-
-
 #### Preparing training and testing sets
 set.seed(1)
 train <- sample(1:dim(df2012)[1], .75*dim(df2012)[1]) #75% train
 test <- (-train) #25% train
-
 
 #### LM model: directly predicting V
 df_list <- list(df2012,df2014,df2016)
