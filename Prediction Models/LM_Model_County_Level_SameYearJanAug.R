@@ -6,6 +6,7 @@ library(tidyverse)
 library(janitor)
 library(skimr)
 library(readxl)
+library(glmnet)
 
 # Load data
 data <- readRDS("data/processed/competition_data.rds") %>%
