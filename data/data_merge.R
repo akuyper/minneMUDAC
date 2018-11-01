@@ -7,6 +7,7 @@ library(skimr)
 # read data
 results <- read_csv("./data/processed/2008_2016_general_result.csv")
 county_acs <- read_csv("./data/processed/combined_counties/combined_counties.csv")
+county_acs_aug <- read_csv("./data/processed/combined_counties_aug.csv")
 
 # join and cleanse for even numbered years
 comp_dat <- results %>% 
@@ -18,19 +19,27 @@ comp_dat <- results %>%
 
 # add 2016 st louis county data
 comp_dat <- comp_dat %>% 
-  mutate(unemplyoment = if_else(is.na(unemplyoment), 5.7, unemplyoment),
+  mutate(unemployment = if_else(is.na(unemployment), 5.7, unemployment),
          pres = if_else(year %% 4 == 0, 1, 0)) %>% 
-  rename(unemployment = unemplyoment)
+  rename(unemployment = unemployment)
 
 # join and cleanse for all years 2010-present
 # odd number election results will be NA
 county_all <- county_acs %>% 
   filter(year >= 2010, year < 2018) %>% 
-  mutate(unemplyoment = if_else(is.na(unemplyoment) & year == 2016, 5.7, unemplyoment),
-         unemplyoment = if_else(is.na(unemplyoment) & year == 2017, 4.6, unemplyoment),
+  mutate(unemployment = if_else(is.na(unemployment) & year == 2016, 5.7, unemployment),
+         unemployment = if_else(is.na(unemployment) & year == 2017, 4.6, unemployment),
          pres = if_else(year %% 4 == 0, 1, 0),
          cong = if_else(year %% 2 == 0, 1, 0)) %>% 
-  rename(unemployment = unemplyoment)
+  rename(unemployment = unemployment)
+
+county_all_aug <- county_acs_aug %>% 
+  filter(year >= 2010, year < 2018) %>% 
+  mutate(unemployment = if_else(is.na(unemployment) & year == 2016, 5.7, unemployment),
+         unemployment = if_else(is.na(unemployment) & year == 2017, 4.6, unemployment),
+         pres = if_else(year %% 4 == 0, 1, 0),
+         cong = if_else(year %% 2 == 0, 1, 0)) %>% 
+  rename(unemployment = unemployment)
 
 comp_dat_full <- results %>%
   filter(year >= 2010) %>% 
@@ -41,10 +50,29 @@ comp_dat_full <- results %>%
 county_all <- county_all %>% 
   select(-snap, -poverty_perc, -net_mig, -prevent_admin, -real_wage_coladj, -patents, -crime, -civ_labor, -at_hpi, -pre_death, -age_pre_death)
 
+comp_dat_aug <- results %>% 
+  left_join(county_acs_aug, by = c("countycode", "year")) %>% 
+  filter(year >= 2010) %>% 
+  # remove missing 
+  select(-snap, -poverty_perc, -net_mig, -prevent_admin, -real_wage_coladj, -patents, -crime, -civ_labor, -at_hpi, -pre_death, -age_pre_death)
+
+# add 2016 st louis county data
+comp_dat_aug <- comp_dat_aug %>% 
+  mutate(unemployment = if_else(is.na(unemployment), 5.7, unemployment),
+         pres = if_else(year %% 4 == 0, 1, 0)) %>% 
+  rename(unemployment = unemployment)
+
+comp_dat_full_aug <- results %>%
+  filter(year >= 2010) %>% 
+  full_join(county_all_aug, by = c("countycode", "year")) %>%
+  select(-snap, -poverty_perc, -net_mig, -prevent_admin, -real_wage_coladj, -patents, -crime, -civ_labor, -at_hpi, -pre_death, -age_pre_death)
+
 # write data
 write_rds(county_all, "./data/processed/all_county.rds")
 write_rds(comp_dat, "./data/processed/competition_data.rds")
 write_rds(comp_dat_full, "./data/processed/competition_data_oddyears.rds")
+write_rds(comp_dat_aug, "./data/processed/competition_data_aug.rds")
+write_rds(comp_dat_full_aug, "./data/processed/competition_data_full_aug.rds")
 
 # check for completeness among variables
 year_check <- function(var){
