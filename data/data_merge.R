@@ -19,9 +19,13 @@ comp_dat <- results %>%
 
 # add 2016 st louis county data
 comp_dat <- comp_dat %>% 
-  mutate(unemployment = if_else(is.na(unemployment), 5.7, unemployment),
+  mutate(unemplyoment = if_else(is.na(unemplyoment), 5.7, unemplyoment),
          pres = if_else(year %% 4 == 0, 1, 0)) %>% 
-  rename(unemployment = unemployment)
+  rename(unemployment = unemplyoment)
+
+comp_dat %>% 
+  summarise_all(funs(sum(is.na(.)))) %>% 
+  t()
 
 # join and cleanse for all years 2010-present
 # odd number election results will be NA
