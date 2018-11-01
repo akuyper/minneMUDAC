@@ -19,6 +19,8 @@ countyid <- read.csv("data/processed/countycodes.csv") %>%
   clean_names() %>% 
   mutate(county=tolower(countyname))
 
+countyid$countycode[69]=69
+
 adjustments <- left_join(may_nov_data,countyid,by="county") %>% 
   select(countycode,county,adjustment18)
 
@@ -34,11 +36,11 @@ colnames(precinct2018)[1]="countycode"
 
 voter2018<- left_join(precinct2018,adjustments,by="countycode") %>% 
   select(countycode,county_name,precinct_code,precinct_name,registered_voters,adjustment18) %>% 
-  mutate(estimated_registered_voters=registered_voters*adjustment18) %>% 
+  mutate(reg7am=registered_voters*adjustment18) %>% 
   select(-registered_voters,-adjustment18) %>% 
   add_column(year=2018)
 
-voter2018 <- voter2018[-nrow(voter2018),]
+voter2018=voter2018[,-1] 
 
 saveRDS(voter2018, file = "data/processed/voter2018.rds")
 
