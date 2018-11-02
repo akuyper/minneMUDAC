@@ -10,3 +10,4 @@ competition_data <-
   mutate(r_factor=(totvoting-edr)/reg7am)
 
 write.csv(competition_data, file = "data/processed/competition_data_with_r.csv")
+write_rds(competition_data, "./data/processed/competition_data_with_r.rds")
