@@ -14,8 +14,8 @@ data$mailballot <- ifelse(data$mailballot =="Yes", 1, 0)
 data <- mutate_all(data, funs(as.numeric))
 
 data2018 <- readRDS("data/processed/county_dat_2018.rds") %>% rename(countycode = COUNTYCODE)
-voter2018 <- readRDS("data/processed/voter2018.rds") #%>% select_if(~sum(!is.na(.)) > 0)
-data_2018 <- voter2018 %>% 
+voter2018_reg7am <- readRDS("data/processed/voter2018.rds") #%>% select_if(~sum(!is.na(.)) > 0)
+data_2018 <- voter2018_reg7am %>% 
   left_join(data2018, by = c("countycode")) 
 
 #### Presinct Level Data
@@ -74,6 +74,10 @@ test_data <- data_2018 %>%
            pop_perc,pop_res,pop_u18,poverty,poverty_u18,prec_rel_chil_518,
            privat_ests,race_white,racical_dissim,rel_chil_518,undergrad,unemployment)
 test_data <- as.matrix(data.frame(1, test_data))
-edr_hat <- test_data %*% lm_coef
+edr_hat <- as.vector(test_data %*% lm_coef) 
+edr_hat <- ifelse(edr_hat>0,edr_hat,0)
 
+voter2018_edr_lm <- voter2018_reg7am %>% 
+  add_column(edr=edr_hat)
 
+saveRDS(voter2018_edr_lm,"data/processed/voter2018_edr_lm.rds")
