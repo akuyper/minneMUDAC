@@ -19,7 +19,7 @@ precincts <- read_csv("./data/processed/official_precincts.csv", col_names = TRU
 
 # join tables
 dat_2018 <- voters2018 %>% 
-  left_join(county_dat, by = c("countycode" = "COUNTYCODE", "county_name" = "county")) %>% 
+  left_join(county_dat, by = c("countycode" = "COUNTYCODE", "county_name" = "county", "year")) %>% 
   left_join(precincts) %>% 
   filter(precinct_name != "NULL")
 
@@ -53,7 +53,9 @@ for(i in 1:length(congdist_vec)){
 
 dat_2018 <- dat_2018 %>% 
   select(-lesue, -warren, -hibbing) %>% 
-  mutate(congdist = congdist_vec)
+  mutate(congdist = congdist_vec) %>% 
+  mutate(pres = 0,
+         edr = read_rds("./Prediction Models/randomForest/edrpreds.rds"))
 
 dat_2018 %>% 
   summarise_all(funs(sum(is.na(.)))) %>% 

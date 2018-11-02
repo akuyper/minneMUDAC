@@ -50,3 +50,12 @@ predicted_table %>%
   geom_line(aes(observed, observed))
 
 # generate 2018 predictions
+rforest_mod <- read_rds("./Prediction Models/randomForest/randomForest_edr.rds")
+
+dat_2018 <- read_rds("./data/processed/data_2018.rds") %>% 
+  select(-precinct_name, -precinct_code, -countycode, -congdist, -county_name) %>% 
+  as.matrix()
+
+edr_preds <- predict(rforest_mod, newdata = dat_2018)
+
+write_rds(edr_preds, "./Prediction Models/randomForest/edrpreds.rds")
