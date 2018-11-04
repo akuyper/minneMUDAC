@@ -5,7 +5,14 @@ library(janitor)
 # load data
 general_results <- read_csv("data/processed/2008_2016_general_result.csv")
 general_results <- general_results[-nrow(general_results),]
+competition_data<-readRDS("data/processed/competition_data.rds")
 
+#total voting on congdist
+cg_tot <- competition_data %>% 
+  group_by(congdist,year) %>% 
+  summarise(edr=sum(edr),totvoting_res=sum(totvoting)-sum(edr))
+
+write_csv(cg_tot,"data/processed/cg_year_totalvoting.csv")
 #skim
 general_results %>% 
   skim()

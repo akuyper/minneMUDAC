@@ -1,0 +1,3335 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10500.18.0210.2209                               -->
+<workbook source-build='10.5.1 (10500.18.0210.2209)' source-platform='mac' version='10.5' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='cg_year_totalvoting (4)' inline='true' name='federated.0qk8an815g2pjw1dj4g1w1evp0nv' version='10.5'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='cg_year_totalvoting' name='textscan.02sd95b108ii7v11slttw0lepm89'>
+            <connection class='textscan' directory='/Users/daniel0930/Documents/GitHub/minneMUDAC/data/processed' filename='cg_year_totalvoting.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.02sd95b108ii7v11slttw0lepm89' name='cg_year_totalvoting.csv' table='[cg_year_totalvoting#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='congdist' ordinal='0' />
+            <column datatype='integer' name='year' ordinal='1' />
+            <column datatype='integer' name='edr' ordinal='2' />
+            <column datatype='real' name='totvoting_res' ordinal='3' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>congdist</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[congdist]</local-name>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias>congdist</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>edr</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[edr]</local-name>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias>edr</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>totvoting_res</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[totvoting_res]</local-name>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias>totvoting_res</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Congdist' datatype='integer' name='[congdist]' role='measure' type='quantitative' />
+      <column caption='Edr' datatype='integer' name='[edr]' role='measure' type='quantitative' />
+      <column caption='Standard Deviation' datatype='real' name='[standard deviation]' role='measure' type='quantitative' />
+      <column caption='Totvoting Res' datatype='real' name='[totvoting_res]' role='measure' type='quantitative' />
+      <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+      <column-instance column='[edr]' derivation='Sum' name='[sum:edr:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[totvoting_res]' derivation='Sum' name='[sum:totvoting_res:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.419103' measure-ordering='alphabetic' measure-percentage='0.580897' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#edc948'>
+              <bucket>&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:edr:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:totvoting_res:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='cng2012.shp+ (Multiple Connections)' inline='true' name='federated.0c9wbrz133addl1ewkdau0tbb8x2' version='10.5'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='cng2012' name='ogrdirect.081qmwn1l5evv112yj36c0vtgw10'>
+            <connection class='ogrdirect' directory='/Users/daniel0930/Downloads/shp_bdry_congressionaldistricts2012' filename='cng2012.shp' ogr-grid-shift-folder='/Applications/Tableau Desktop 10.5.app/Contents/install/local/proj4' password='' server='' />
+          </named-connection>
+          <named-connection caption='prediction' name='excel-direct.0f3xeqt0sd09cg1h3b2g60wbyb4b'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/daniel0930/Documents/GitHub/minneMUDAC/data/processed/prediction.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+          <named-connection caption='cg_year_totalvoting' name='textscan.028fli81em91ij14oe7md1a9pk22'>
+            <connection class='textscan' directory='/Users/daniel0930/Documents/GitHub/minneMUDAC/data/processed' filename='cg_year_totalvoting.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='variation_across_cds' name='textscan.0kkw0fw1ju8nkv19v7fpk16mx3t2'>
+            <connection class='textscan' directory='/Users/daniel0930/Documents/GitHub/minneMUDAC/data/processed' filename='variation_across_cds.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='2018_predictions_bycd' name='textscan.0e84ey7015rd6j1fkxrgq1l84keb'>
+            <connection class='textscan' directory='/Users/daniel0930/Documents/GitHub/minneMUDAC/data/processed' filename='2018_predictions_bycd.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='full' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[variation_across_cds.csv].[congdist]' />
+              <expression op='[2018_predictions_bycd.csv].[congdist]' />
+            </expression>
+          </clause>
+          <relation join='left' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[cng2012.shp].[DISTRICT]' />
+                <expression op='[variation_across_cds.csv].[congdist]' />
+              </expression>
+            </clause>
+            <relation connection='ogrdirect.081qmwn1l5evv112yj36c0vtgw10' name='cng2012.shp' table='[cng2012.shp]' type='table'>
+              <columns>
+                <column datatype='integer' name='ID' ordinal='0' />
+                <column datatype='real' name='AREA' ordinal='1' />
+                <column datatype='integer' name='DATA' ordinal='2' />
+                <column datatype='string' name='DISTRICT' ordinal='3' />
+                <column datatype='real' name='MEMBERS' ordinal='4' />
+                <column datatype='string' name='LOCKED' ordinal='5' />
+                <column datatype='string' name='NAME' ordinal='6' />
+                <column datatype='integer' name='POPULATION' ordinal='7' />
+                <column datatype='integer' name='HISPANIC_O' ordinal='8' />
+                <column datatype='integer' name='NH_WHT' ordinal='9' />
+                <column datatype='integer' name='NH_DOJ_BLK' ordinal='10' />
+                <column datatype='integer' name='NH_DOJ_IND' ordinal='11' />
+                <column datatype='integer' name='NH_DOJ_ASN' ordinal='12' />
+                <column datatype='integer' name='NH_DOJ_HWN' ordinal='13' />
+                <column datatype='integer' name='NH_DOJ_OTH' ordinal='14' />
+                <column datatype='integer' name='NH_DOJ_OT1' ordinal='15' />
+                <column datatype='integer' name='F18_POP' ordinal='16' />
+                <column datatype='integer' name='H18_POP' ordinal='17' />
+                <column datatype='integer' name='NH18_WHT' ordinal='18' />
+                <column datatype='integer' name='NH18_DOJ_B' ordinal='19' />
+                <column datatype='integer' name='NH18_DOJ_I' ordinal='20' />
+                <column datatype='integer' name='NH18_DOJ_A' ordinal='21' />
+                <column datatype='integer' name='NH18_DOJ_H' ordinal='22' />
+                <column datatype='integer' name='NH18_DOJ_O' ordinal='23' />
+                <column datatype='integer' name='NH18_DOJ_1' ordinal='24' />
+                <column datatype='real' name='DEM_INDEX' ordinal='25' />
+                <column datatype='real' name='REP_INDEX' ordinal='26' />
+                <column datatype='real' name='THIRD_INDE' ordinal='27' />
+                <column datatype='real' name='INDEX_VOTE' ordinal='28' />
+                <column datatype='real' name='IDEAL_VALU' ordinal='29' />
+                <column datatype='real' name='DEVIATION' ordinal='30' />
+                <column datatype='real' name='F_DEVIATIO' ordinal='31' />
+                <column datatype='real' name='F_HISPANIC' ordinal='32' />
+                <column datatype='real' name='F_NH_WHT' ordinal='33' />
+                <column datatype='real' name='F_NH_DOJ_B' ordinal='34' />
+                <column datatype='real' name='F_NH_DOJ_I' ordinal='35' />
+                <column datatype='real' name='F_NH_DOJ_A' ordinal='36' />
+                <column datatype='real' name='F_NH_DOJ_H' ordinal='37' />
+                <column datatype='real' name='F_NH_DOJ_O' ordinal='38' />
+                <column datatype='real' name='F_NH_DOJ_1' ordinal='39' />
+                <column datatype='real' name='F_H18_POP' ordinal='40' />
+                <column datatype='real' name='F_NH18_WHT' ordinal='41' />
+                <column datatype='real' name='F_NH18_DOJ' ordinal='42' />
+                <column datatype='real' name='F_NH18_DO1' ordinal='43' />
+                <column datatype='real' name='F_NH18_DO2' ordinal='44' />
+                <column datatype='real' name='F_NH18_DO3' ordinal='45' />
+                <column datatype='real' name='F_NH18_DO4' ordinal='46' />
+                <column datatype='real' name='F_NH18_DO5' ordinal='47' />
+                <column datatype='real' name='F_DEM_INDE' ordinal='48' />
+                <column datatype='real' name='F_REP_INDE' ordinal='49' />
+                <column datatype='real' name='F_THIRD_IN' ordinal='50' />
+                <column datatype='integer' name='COLORING' ordinal='51' />
+                <column datatype='string' name='PLAN' ordinal='52' />
+                <column datatype='string' name='Party' ordinal='53' />
+                <column datatype='string' name='LNAME' ordinal='54' />
+                <column datatype='spatial' name='Geometry' ordinal='55' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0kkw0fw1ju8nkv19v7fpk16mx3t2' name='variation_across_cds.csv' table='[variation_across_cds#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                <column datatype='string' name='congdist' ordinal='0' />
+                <column datatype='real' name='sd' ordinal='1' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='textscan.0e84ey7015rd6j1fkxrgq1l84keb' name='2018_predictions_bycd.csv' table='[2018_predictions_bycd#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='congdist' ordinal='0' />
+              <column datatype='real' name='congvotes' ordinal='1' />
+              <column datatype='real' name='turnout' ordinal='2' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[AREA]' value='[cng2012.shp].[AREA]' />
+          <map key='[COLORING]' value='[cng2012.shp].[COLORING]' />
+          <map key='[DATA]' value='[cng2012.shp].[DATA]' />
+          <map key='[DEM_INDEX]' value='[cng2012.shp].[DEM_INDEX]' />
+          <map key='[DEVIATION]' value='[cng2012.shp].[DEVIATION]' />
+          <map key='[DISTRICT]' value='[cng2012.shp].[DISTRICT]' />
+          <map key='[F18_POP]' value='[cng2012.shp].[F18_POP]' />
+          <map key='[F_DEM_INDE]' value='[cng2012.shp].[F_DEM_INDE]' />
+          <map key='[F_DEVIATIO]' value='[cng2012.shp].[F_DEVIATIO]' />
+          <map key='[F_H18_POP]' value='[cng2012.shp].[F_H18_POP]' />
+          <map key='[F_HISPANIC]' value='[cng2012.shp].[F_HISPANIC]' />
+          <map key='[F_NH18_DO1]' value='[cng2012.shp].[F_NH18_DO1]' />
+          <map key='[F_NH18_DO2]' value='[cng2012.shp].[F_NH18_DO2]' />
+          <map key='[F_NH18_DO3]' value='[cng2012.shp].[F_NH18_DO3]' />
+          <map key='[F_NH18_DO4]' value='[cng2012.shp].[F_NH18_DO4]' />
+          <map key='[F_NH18_DO5]' value='[cng2012.shp].[F_NH18_DO5]' />
+          <map key='[F_NH18_DOJ]' value='[cng2012.shp].[F_NH18_DOJ]' />
+          <map key='[F_NH18_WHT]' value='[cng2012.shp].[F_NH18_WHT]' />
+          <map key='[F_NH_DOJ_1]' value='[cng2012.shp].[F_NH_DOJ_1]' />
+          <map key='[F_NH_DOJ_A]' value='[cng2012.shp].[F_NH_DOJ_A]' />
+          <map key='[F_NH_DOJ_B]' value='[cng2012.shp].[F_NH_DOJ_B]' />
+          <map key='[F_NH_DOJ_H]' value='[cng2012.shp].[F_NH_DOJ_H]' />
+          <map key='[F_NH_DOJ_I]' value='[cng2012.shp].[F_NH_DOJ_I]' />
+          <map key='[F_NH_DOJ_O]' value='[cng2012.shp].[F_NH_DOJ_O]' />
+          <map key='[F_NH_WHT]' value='[cng2012.shp].[F_NH_WHT]' />
+          <map key='[F_REP_INDE]' value='[cng2012.shp].[F_REP_INDE]' />
+          <map key='[F_THIRD_IN]' value='[cng2012.shp].[F_THIRD_IN]' />
+          <map key='[Geometry]' value='[cng2012.shp].[Geometry]' />
+          <map key='[H18_POP]' value='[cng2012.shp].[H18_POP]' />
+          <map key='[HISPANIC_O]' value='[cng2012.shp].[HISPANIC_O]' />
+          <map key='[IDEAL_VALU]' value='[cng2012.shp].[IDEAL_VALU]' />
+          <map key='[ID]' value='[cng2012.shp].[ID]' />
+          <map key='[INDEX_VOTE]' value='[cng2012.shp].[INDEX_VOTE]' />
+          <map key='[LNAME]' value='[cng2012.shp].[LNAME]' />
+          <map key='[LOCKED]' value='[cng2012.shp].[LOCKED]' />
+          <map key='[MEMBERS]' value='[cng2012.shp].[MEMBERS]' />
+          <map key='[NAME]' value='[cng2012.shp].[NAME]' />
+          <map key='[NH18_DOJ_1]' value='[cng2012.shp].[NH18_DOJ_1]' />
+          <map key='[NH18_DOJ_A]' value='[cng2012.shp].[NH18_DOJ_A]' />
+          <map key='[NH18_DOJ_B]' value='[cng2012.shp].[NH18_DOJ_B]' />
+          <map key='[NH18_DOJ_H]' value='[cng2012.shp].[NH18_DOJ_H]' />
+          <map key='[NH18_DOJ_I]' value='[cng2012.shp].[NH18_DOJ_I]' />
+          <map key='[NH18_DOJ_O]' value='[cng2012.shp].[NH18_DOJ_O]' />
+          <map key='[NH18_WHT]' value='[cng2012.shp].[NH18_WHT]' />
+          <map key='[NH_DOJ_ASN]' value='[cng2012.shp].[NH_DOJ_ASN]' />
+          <map key='[NH_DOJ_BLK]' value='[cng2012.shp].[NH_DOJ_BLK]' />
+          <map key='[NH_DOJ_HWN]' value='[cng2012.shp].[NH_DOJ_HWN]' />
+          <map key='[NH_DOJ_IND]' value='[cng2012.shp].[NH_DOJ_IND]' />
+          <map key='[NH_DOJ_OT1]' value='[cng2012.shp].[NH_DOJ_OT1]' />
+          <map key='[NH_DOJ_OTH]' value='[cng2012.shp].[NH_DOJ_OTH]' />
+          <map key='[NH_WHT]' value='[cng2012.shp].[NH_WHT]' />
+          <map key='[PLAN]' value='[cng2012.shp].[PLAN]' />
+          <map key='[POPULATION]' value='[cng2012.shp].[POPULATION]' />
+          <map key='[Party]' value='[cng2012.shp].[Party]' />
+          <map key='[REP_INDEX]' value='[cng2012.shp].[REP_INDEX]' />
+          <map key='[THIRD_INDE]' value='[cng2012.shp].[THIRD_INDE]' />
+          <map key='[congdist (2018_predictions_bycd.csv)]' value='[2018_predictions_bycd.csv].[congdist]' />
+          <map key='[congdist]' value='[variation_across_cds.csv].[congdist]' />
+          <map key='[congvotes]' value='[2018_predictions_bycd.csv].[congvotes]' />
+          <map key='[sd]' value='[variation_across_cds.csv].[sd]' />
+          <map key='[turnout]' value='[2018_predictions_bycd.csv].[turnout]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AREA</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[AREA]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>AREA</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DATA</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[DATA]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>DATA</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DISTRICT</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[DISTRICT]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>DISTRICT</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MEMBERS</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[MEMBERS]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>MEMBERS</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LOCKED</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[LOCKED]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>LOCKED</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NAME</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[NAME]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NAME</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>POPULATION</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[POPULATION]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>POPULATION</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>HISPANIC_O</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[HISPANIC_O]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>HISPANIC_O</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH_WHT</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH_WHT]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH_WHT</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH_DOJ_BLK</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH_DOJ_BLK]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH_DOJ_BLK</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH_DOJ_IND</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH_DOJ_IND]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH_DOJ_IND</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH_DOJ_ASN</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH_DOJ_ASN]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH_DOJ_ASN</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH_DOJ_HWN</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH_DOJ_HWN]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH_DOJ_HWN</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH_DOJ_OTH</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH_DOJ_OTH]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH_DOJ_OTH</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH_DOJ_OT1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH_DOJ_OT1]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH_DOJ_OT1</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F18_POP</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F18_POP]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F18_POP</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>H18_POP</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[H18_POP]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>H18_POP</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH18_WHT</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH18_WHT]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH18_WHT</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH18_DOJ_B</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH18_DOJ_B]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH18_DOJ_B</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH18_DOJ_I</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH18_DOJ_I]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH18_DOJ_I</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH18_DOJ_A</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH18_DOJ_A]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH18_DOJ_A</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH18_DOJ_H</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH18_DOJ_H]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH18_DOJ_H</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH18_DOJ_O</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH18_DOJ_O]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH18_DOJ_O</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NH18_DOJ_1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NH18_DOJ_1]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>NH18_DOJ_1</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DEM_INDEX</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[DEM_INDEX]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>DEM_INDEX</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>REP_INDEX</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[REP_INDEX]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>REP_INDEX</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>THIRD_INDE</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[THIRD_INDE]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>THIRD_INDE</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>INDEX_VOTE</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[INDEX_VOTE]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>INDEX_VOTE</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>IDEAL_VALU</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[IDEAL_VALU]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>IDEAL_VALU</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DEVIATION</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[DEVIATION]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>DEVIATION</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_DEVIATIO</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_DEVIATIO]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_DEVIATIO</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_HISPANIC</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_HISPANIC]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_HISPANIC</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH_WHT</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH_WHT]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH_WHT</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH_DOJ_B</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH_DOJ_B]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH_DOJ_B</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH_DOJ_I</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH_DOJ_I]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH_DOJ_I</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH_DOJ_A</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH_DOJ_A]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH_DOJ_A</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH_DOJ_H</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH_DOJ_H]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH_DOJ_H</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH_DOJ_O</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH_DOJ_O]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH_DOJ_O</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH_DOJ_1</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH_DOJ_1]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH_DOJ_1</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_H18_POP</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_H18_POP]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_H18_POP</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH18_WHT</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH18_WHT]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH18_WHT</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH18_DOJ</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH18_DOJ]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH18_DOJ</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH18_DO1</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH18_DO1]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH18_DO1</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH18_DO2</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH18_DO2]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH18_DO2</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH18_DO3</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH18_DO3]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH18_DO3</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH18_DO4</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH18_DO4]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH18_DO4</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_NH18_DO5</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_NH18_DO5]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_NH18_DO5</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_DEM_INDE</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_DEM_INDE]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_DEM_INDE</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_REP_INDE</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_REP_INDE]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_REP_INDE</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F_THIRD_IN</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F_THIRD_IN]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>F_THIRD_IN</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>COLORING</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[COLORING]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>COLORING</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PLAN</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[PLAN]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>PLAN</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Party</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Party]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>Party</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LNAME</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[LNAME]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>LNAME</remote-alias>
+            <ordinal>54</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>Geometry</remote-name>
+            <remote-type>8</remote-type>
+            <local-name>[Geometry]</local-name>
+            <parent-name>[cng2012.shp]</parent-name>
+            <remote-alias>Geometry</remote-alias>
+            <ordinal>55</ordinal>
+            <local-type>spatial</local-type>
+            <aggregation>Collect</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[variation_across_cds.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>congdist</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[congdist]</local-name>
+            <parent-name>[variation_across_cds.csv]</parent-name>
+            <remote-alias>congdist</remote-alias>
+            <ordinal>56</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sd</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[sd]</local-name>
+            <parent-name>[variation_across_cds.csv]</parent-name>
+            <remote-alias>sd</remote-alias>
+            <ordinal>57</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[2018_predictions_bycd.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>congdist</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[congdist (2018_predictions_bycd.csv)]</local-name>
+            <parent-name>[2018_predictions_bycd.csv]</parent-name>
+            <remote-alias>congdist</remote-alias>
+            <ordinal>58</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>congvotes</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[congvotes]</local-name>
+            <parent-name>[2018_predictions_bycd.csv]</parent-name>
+            <remote-alias>congvotes</remote-alias>
+            <ordinal>59</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>turnout</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[turnout]</local-name>
+            <parent-name>[2018_predictions_bycd.csv]</parent-name>
+            <remote-alias>turnout</remote-alias>
+            <ordinal>60</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Area' datatype='real' name='[AREA]' role='measure' type='quantitative' />
+      <column caption='Coloring' datatype='integer' name='[COLORING]' role='measure' type='quantitative' />
+      <column caption='Data' datatype='integer' name='[DATA]' role='measure' type='quantitative' />
+      <column caption='Dem Index' datatype='real' name='[DEM_INDEX]' role='measure' type='quantitative' />
+      <column caption='Deviation' datatype='real' name='[DEVIATION]' role='measure' type='quantitative' />
+      <column caption='District' datatype='string' datatype-customized='true' name='[DISTRICT]' role='dimension' type='nominal' />
+      <column caption='District1' datatype='string' default-role='measure' default-type='quantitative' name='[District]' role='dimension' type='nominal' />
+      <column caption='F18 Pop' datatype='integer' name='[F18_POP]' role='measure' type='quantitative' />
+      <column caption='F Dem Inde' datatype='real' name='[F_DEM_INDE]' role='measure' type='quantitative' />
+      <column caption='F Deviatio' datatype='real' name='[F_DEVIATIO]' role='measure' type='quantitative' />
+      <column caption='F H18 Pop' datatype='real' name='[F_H18_POP]' role='measure' type='quantitative' />
+      <column caption='F Hispanic' datatype='real' name='[F_HISPANIC]' role='measure' type='quantitative' />
+      <column caption='F Nh18 Do1' datatype='real' name='[F_NH18_DO1]' role='measure' type='quantitative' />
+      <column caption='F Nh18 Do2' datatype='real' name='[F_NH18_DO2]' role='measure' type='quantitative' />
+      <column caption='F Nh18 Do3' datatype='real' name='[F_NH18_DO3]' role='measure' type='quantitative' />
+      <column caption='F Nh18 Do4' datatype='real' name='[F_NH18_DO4]' role='measure' type='quantitative' />
+      <column caption='F Nh18 Do5' datatype='real' name='[F_NH18_DO5]' role='measure' type='quantitative' />
+      <column caption='F Nh18 Doj' datatype='real' name='[F_NH18_DOJ]' role='measure' type='quantitative' />
+      <column caption='F Nh18 Wht' datatype='real' name='[F_NH18_WHT]' role='measure' type='quantitative' />
+      <column caption='F Nh Doj 1' datatype='real' name='[F_NH_DOJ_1]' role='measure' type='quantitative' />
+      <column caption='F Nh Doj A' datatype='real' name='[F_NH_DOJ_A]' role='measure' type='quantitative' />
+      <column caption='F Nh Doj B' datatype='real' name='[F_NH_DOJ_B]' role='measure' type='quantitative' />
+      <column caption='F Nh Doj H' datatype='real' name='[F_NH_DOJ_H]' role='measure' type='quantitative' />
+      <column caption='F Nh Doj I' datatype='real' name='[F_NH_DOJ_I]' role='measure' type='quantitative' />
+      <column caption='F Nh Doj O' datatype='real' name='[F_NH_DOJ_O]' role='measure' type='quantitative' />
+      <column caption='F Nh Wht' datatype='real' name='[F_NH_WHT]' role='measure' type='quantitative' />
+      <column caption='F Rep Inde' datatype='real' name='[F_REP_INDE]' role='measure' type='quantitative' />
+      <column caption='F Third In' datatype='real' name='[F_THIRD_IN]' role='measure' type='quantitative' />
+      <column caption='H18 Pop' datatype='integer' name='[H18_POP]' role='measure' type='quantitative' />
+      <column caption='Hispanic O' datatype='integer' name='[HISPANIC_O]' role='measure' type='quantitative' />
+      <column caption='Ideal Valu' datatype='real' name='[IDEAL_VALU]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[ID]' role='dimension' type='ordinal' />
+      <column caption='Index Vote' datatype='real' name='[INDEX_VOTE]' role='measure' type='quantitative' />
+      <column caption='Lname' datatype='string' name='[LNAME]' role='dimension' type='nominal' />
+      <column caption='Locked' datatype='string' name='[LOCKED]' role='dimension' type='nominal' />
+      <column caption='Members' datatype='real' name='[MEMBERS]' role='measure' type='quantitative' />
+      <column caption='Name' datatype='string' name='[NAME]' role='dimension' type='nominal' />
+      <column caption='Nh18 Doj 1' datatype='integer' name='[NH18_DOJ_1]' role='measure' type='quantitative' />
+      <column caption='Nh18 Doj A' datatype='integer' name='[NH18_DOJ_A]' role='measure' type='quantitative' />
+      <column caption='Nh18 Doj B' datatype='integer' name='[NH18_DOJ_B]' role='measure' type='quantitative' />
+      <column caption='Nh18 Doj H' datatype='integer' name='[NH18_DOJ_H]' role='measure' type='quantitative' />
+      <column caption='Nh18 Doj I' datatype='integer' name='[NH18_DOJ_I]' role='measure' type='quantitative' />
+      <column caption='Nh18 Doj O' datatype='integer' name='[NH18_DOJ_O]' role='measure' type='quantitative' />
+      <column caption='Nh18 Wht' datatype='integer' name='[NH18_WHT]' role='measure' type='quantitative' />
+      <column caption='Nh Doj Asn' datatype='integer' name='[NH_DOJ_ASN]' role='measure' type='quantitative' />
+      <column caption='Nh Doj Blk' datatype='integer' name='[NH_DOJ_BLK]' role='measure' type='quantitative' />
+      <column caption='Nh Doj Hwn' datatype='integer' name='[NH_DOJ_HWN]' role='measure' type='quantitative' />
+      <column caption='Nh Doj Ind' datatype='integer' name='[NH_DOJ_IND]' role='measure' type='quantitative' />
+      <column caption='Nh Doj Ot1' datatype='integer' name='[NH_DOJ_OT1]' role='measure' type='quantitative' />
+      <column caption='Nh Doj Oth' datatype='integer' name='[NH_DOJ_OTH]' role='measure' type='quantitative' />
+      <column caption='Nh Wht' datatype='integer' name='[NH_WHT]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Plan' datatype='string' name='[PLAN]' role='dimension' type='nominal' />
+      <column caption='Population' datatype='integer' name='[POPULATION]' role='measure' type='quantitative' />
+      <column caption='Rep Index' datatype='real' name='[REP_INDEX]' role='measure' type='quantitative' />
+      <column caption='Third Inde' datatype='real' name='[THIRD_INDE]' role='measure' type='quantitative' />
+      <column caption='Total voters' datatype='integer' name='[Total_voters]' role='measure' type='quantitative' />
+      <column caption='Congdist (2018 Predictions Bycd.Csv)' datatype='string' default-role='measure' default-type='quantitative' name='[congdist (2018_predictions_bycd.csv)]' role='dimension' type='nominal' />
+      <column caption='Congdist' datatype='string' default-role='measure' default-type='quantitative' name='[congdist]' role='dimension' type='nominal' />
+      <column caption='Congvotes' datatype='real' name='[congvotes]' role='measure' type='quantitative' />
+      <column caption='Sd' datatype='real' name='[sd]' role='measure' type='quantitative' />
+      <column caption='Turnout' datatype='real' name='[turnout]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.327485' measure-ordering='alphabetic' measure-percentage='0.672515' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='cg_year_totalvoting' inline='true' name='federated.0p6ek4m1x2yu0x1co9gdm0qm4xj6' version='10.5'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='cg_year_totalvoting' name='textscan.0hr1rh21ym29ac11b010p0wj1b5i'>
+            <connection class='textscan' directory='/Users/daniel0930/Documents/GitHub/minneMUDAC/data/processed' filename='cg_year_totalvoting.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0hr1rh21ym29ac11b010p0wj1b5i' name='cg_year_totalvoting.csv' table='[cg_year_totalvoting#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='congdist' ordinal='0' />
+            <column datatype='integer' name='year' ordinal='1' />
+            <column datatype='integer' name='edr' ordinal='2' />
+            <column datatype='real' name='totvoting_res' ordinal='3' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>congdist</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[congdist]</local-name>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias>congdist</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>edr</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[edr]</local-name>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias>edr</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>totvoting_res</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[totvoting_res]</local-name>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias>totvoting_res</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Congdist' datatype='integer' name='[congdist]' role='measure' type='quantitative' />
+      <column caption='Totalvoting' datatype='integer' name='[totalvoting]' role='measure' type='quantitative' />
+      <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+      <column-instance column='[totalvoting]' derivation='None' name='[none:totalvoting:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[year]' derivation='None' name='[none:year:ok]' pivot='key' type='ordinal' />
+      <group caption='Action (Totalvoting,Year)' hidden='true' name='[Action (Totalvoting,Year)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:totalvoting:ok]' />
+          <groupfilter function='level-members' level='[none:year:ok]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Year)' hidden='true' name='[Action (Year)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:year:ok]' />
+        </groupfilter>
+      </group>
+      <layout dim-ordering='alphabetic' dim-percentage='0.460967' measure-ordering='alphabetic' measure-percentage='0.539033' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='cg_year_totalvoting (3)' inline='true' name='federated.1vdj1n61yu993i1foo2pw1e0l85z' version='10.5'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='cg_year_totalvoting' name='textscan.1681y9d07qohln10og12o04gg68m'>
+            <connection class='textscan' directory='/Users/daniel0930/Documents/GitHub/minneMUDAC/data/processed' filename='cg_year_totalvoting.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1681y9d07qohln10og12o04gg68m' name='cg_year_totalvoting.csv' table='[cg_year_totalvoting#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='congdist' ordinal='0' />
+            <column datatype='integer' name='year' ordinal='1' />
+            <column datatype='integer' name='edr' ordinal='2' />
+            <column datatype='real' name='totvoting_res' ordinal='3' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>congdist</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[congdist]</local-name>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias>congdist</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>edr</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[edr]</local-name>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias>edr</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>totvoting_res</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[totvoting_res]</local-name>
+            <parent-name>[cg_year_totalvoting.csv]</parent-name>
+            <remote-alias>totvoting_res</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Congdist' datatype='integer' name='[congdist]' role='measure' type='quantitative' />
+      <column caption='Edr' datatype='integer' name='[edr]' role='measure' type='quantitative' />
+      <column caption='Standard Deviation' datatype='real' name='[standard deviation]' role='measure' type='quantitative' />
+      <column caption='Totvoting Res' datatype='real' name='[totvoting_res]' role='measure' type='quantitative' />
+      <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+      <column-instance column='[edr]' derivation='Sum' name='[sum:edr:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[standard deviation]' derivation='Sum' name='[sum:standard deviation:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[totvoting_res]' derivation='Sum' name='[sum:totvoting_res:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.412632' measure-ordering='alphabetic' measure-percentage='0.587368' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1vdj1n61yu993i1foo2pw1e0l85z].[attr:standard deviation:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1vdj1n61yu993i1foo2pw1e0l85z].[avg:standard deviation:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1vdj1n61yu993i1foo2pw1e0l85z].[cnt:standard deviation:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1vdj1n61yu993i1foo2pw1e0l85z].[sum:standard deviation:qk]&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;[federated.1vdj1n61yu993i1foo2pw1e0l85z].[sum:edr:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1vdj1n61yu993i1foo2pw1e0l85z].[sum:totvoting_res:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='bdry_votingdistricts' inline='true' name='federated.1wrzpoc1sn9kbj120jztd0y88wlv' version='10.5'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='bdry_votingdistricts' name='ogrdirect.0r37n7y1m3y081127pvju1lq7bef'>
+            <connection class='ogrdirect' directory='/Users/daniel0930/Downloads/shp_bdry_votingdistricts' filename='bdry_votingdistricts.shp' ogr-grid-shift-folder='/Applications/Tableau Desktop 10.5.app/Contents/install/local/proj4' password='' server='' />
+          </named-connection>
+          <named-connection caption='only_r' name='textscan.0qqfq8u19r4wzp1gcy2k002d3tg4'>
+            <connection class='textscan' directory='/Users/daniel0930/Documents/GitHub/minneMUDAC/data/processed' filename='only_r.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='full' type='join'>
+          <clause type='join'>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[only_r.csv].[pctcode]' />
+                <expression op='[bdry_votingdistricts.shp].[PCTCODE]' />
+              </expression>
+              <expression op='='>
+                <expression op='[only_r.csv].[congdist]' />
+                <expression op='[bdry_votingdistricts.shp].[CONGDIST]' />
+              </expression>
+            </expression>
+          </clause>
+          <relation connection='textscan.0qqfq8u19r4wzp1gcy2k002d3tg4' name='only_r.csv' table='[only_r#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='string' name='pctcode' ordinal='1' />
+              <column datatype='real' name='r_2010' ordinal='2' />
+              <column datatype='real' name='r_2012' ordinal='3' />
+              <column datatype='real' name='r_2014' ordinal='4' />
+              <column datatype='string' name='congdist' ordinal='5' />
+              <column datatype='real' name='r_2016' ordinal='6' />
+            </columns>
+          </relation>
+          <relation connection='ogrdirect.0r37n7y1m3y081127pvju1lq7bef' name='bdry_votingdistricts.shp' table='[bdry_votingdistricts.shp]' type='table'>
+            <columns>
+              <column datatype='integer' name='OBJECTID_1' ordinal='0' />
+              <column datatype='real' name='OBJECTID' ordinal='1' />
+              <column datatype='string' name='VTDID' ordinal='2' />
+              <column datatype='string' name='PCTNAME' ordinal='3' />
+              <column datatype='string' name='PCTCODE' ordinal='4' />
+              <column datatype='string' name='SHORTLABEL' ordinal='5' />
+              <column datatype='string' name='MCDNAME' ordinal='6' />
+              <column datatype='string' name='MCDCODE' ordinal='7' />
+              <column datatype='string' name='MCDFIPS' ordinal='8' />
+              <column datatype='string' name='MCDGNIS' ordinal='9' />
+              <column datatype='string' name='CTU_TYPE' ordinal='10' />
+              <column datatype='string' name='COUNTYNAME' ordinal='11' />
+              <column datatype='string' name='COUNTYCODE' ordinal='12' />
+              <column datatype='string' name='COUNTYFIPS' ordinal='13' />
+              <column datatype='string' name='CONGDIST' ordinal='14' />
+              <column datatype='string' name='MNSENDIST' ordinal='15' />
+              <column datatype='string' name='MNLEGDIST' ordinal='16' />
+              <column datatype='string' name='CTYCOMDIST' ordinal='17' />
+              <column datatype='string' name='JUDDIST' ordinal='18' />
+              <column datatype='string' name='SWCDIST' ordinal='19' />
+              <column datatype='string' name='SWCDIST_N' ordinal='20' />
+              <column datatype='string' name='WARD' ordinal='21' />
+              <column datatype='string' name='HOSPDIST' ordinal='22' />
+              <column datatype='string' name='HOSPDIST_N' ordinal='23' />
+              <column datatype='string' name='PARKDIST' ordinal='24' />
+              <column datatype='string' name='PARKDIST_N' ordinal='25' />
+              <column datatype='real' name='Shape_Leng' ordinal='26' />
+              <column datatype='real' name='Shape_Le_1' ordinal='27' />
+              <column datatype='real' name='Shape_Area' ordinal='28' />
+              <column datatype='spatial' name='Geometry' ordinal='29' />
+            </columns>
+          </relation>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[only_r.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[only_r.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pctcode</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[pctcode]</local-name>
+            <parent-name>[only_r.csv]</parent-name>
+            <remote-alias>pctcode</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>r_2010</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[r_2010]</local-name>
+            <parent-name>[only_r.csv]</parent-name>
+            <remote-alias>r_2010</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>r_2012</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[r_2012]</local-name>
+            <parent-name>[only_r.csv]</parent-name>
+            <remote-alias>r_2012</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>r_2014</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[r_2014]</local-name>
+            <parent-name>[only_r.csv]</parent-name>
+            <remote-alias>r_2014</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>congdist</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[congdist]</local-name>
+            <parent-name>[only_r.csv]</parent-name>
+            <remote-alias>congdist</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>r_2016</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[r_2016]</local-name>
+            <parent-name>[only_r.csv]</parent-name>
+            <remote-alias>r_2016</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>OBJECTID_1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[OBJECTID_1]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>OBJECTID_1</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>OBJECTID</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[OBJECTID]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>OBJECTID</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>VTDID</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[VTDID]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>VTDID</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PCTNAME</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[PCTNAME]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>PCTNAME</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PCTCODE</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[PCTCODE]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>PCTCODE</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SHORTLABEL</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[SHORTLABEL]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>SHORTLABEL</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MCDNAME</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[MCDNAME]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>MCDNAME</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MCDCODE</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[MCDCODE]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>MCDCODE</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MCDFIPS</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[MCDFIPS]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>MCDFIPS</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MCDGNIS</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[MCDGNIS]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>MCDGNIS</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CTU_TYPE</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[CTU_TYPE]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>CTU_TYPE</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>COUNTYNAME</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[COUNTYNAME]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>COUNTYNAME</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>COUNTYCODE</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[COUNTYCODE]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>COUNTYCODE</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>COUNTYFIPS</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[COUNTYFIPS]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>COUNTYFIPS</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CONGDIST</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[CONGDIST]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>CONGDIST</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MNSENDIST</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[MNSENDIST]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>MNSENDIST</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MNLEGDIST</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[MNLEGDIST]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>MNLEGDIST</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CTYCOMDIST</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[CTYCOMDIST]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>CTYCOMDIST</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>JUDDIST</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[JUDDIST]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>JUDDIST</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SWCDIST</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[SWCDIST]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>SWCDIST</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SWCDIST_N</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[SWCDIST_N]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>SWCDIST_N</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WARD</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WARD]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>WARD</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>HOSPDIST</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[HOSPDIST]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>HOSPDIST</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>HOSPDIST_N</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[HOSPDIST_N]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>HOSPDIST_N</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PARKDIST</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[PARKDIST]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>PARKDIST</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PARKDIST_N</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[PARKDIST_N]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>PARKDIST_N</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Shape_Leng</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Shape_Leng]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>Shape_Leng</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Shape_Le_1</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Shape_Le_1]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>Shape_Le_1</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Shape_Area</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Shape_Area]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>Shape_Area</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>Geometry</remote-name>
+            <remote-type>8</remote-type>
+            <local-name>[Geometry]</local-name>
+            <parent-name>[bdry_votingdistricts.shp]</parent-name>
+            <remote-alias>Geometry</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>spatial</local-type>
+            <aggregation>Collect</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Congdist1' datatype='string' name='[CONGDIST]' role='dimension' type='nominal' />
+      <column caption='Countycode' datatype='string' name='[COUNTYCODE]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column caption='Countyfips' datatype='string' name='[COUNTYFIPS]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column caption='Countyname' datatype='string' name='[COUNTYNAME]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column caption='Ctu Type' datatype='string' name='[CTU_TYPE]' role='dimension' type='nominal' />
+      <column caption='Ctycomdist' datatype='string' name='[CTYCOMDIST]' role='dimension' type='nominal' />
+      <column caption='Hospdist' datatype='string' name='[HOSPDIST]' role='dimension' type='nominal' />
+      <column caption='Hospdist N' datatype='string' name='[HOSPDIST_N]' role='dimension' type='nominal' />
+      <column caption='Juddist' datatype='string' name='[JUDDIST]' role='dimension' type='nominal' />
+      <column caption='Mcdcode' datatype='string' name='[MCDCODE]' role='dimension' type='nominal' />
+      <column caption='Mcdfips' datatype='string' name='[MCDFIPS]' role='dimension' type='nominal' />
+      <column caption='Mcdgnis' datatype='string' name='[MCDGNIS]' role='dimension' type='nominal' />
+      <column caption='Mcdname' datatype='string' name='[MCDNAME]' role='dimension' type='nominal' />
+      <column caption='Mnlegdist' datatype='string' name='[MNLEGDIST]' role='dimension' type='nominal' />
+      <column caption='Mnsendist' datatype='string' name='[MNSENDIST]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Objectid' datatype='real' name='[OBJECTID]' role='measure' type='quantitative' />
+      <column caption='Objectid 1' datatype='integer' name='[OBJECTID_1]' role='measure' type='quantitative' />
+      <column caption='Parkdist' datatype='string' name='[PARKDIST]' role='dimension' type='nominal' />
+      <column caption='Parkdist N' datatype='string' name='[PARKDIST_N]' role='dimension' type='nominal' />
+      <column caption='Pctcode1' datatype='string' name='[PCTCODE]' role='dimension' type='nominal' />
+      <column caption='Pctname' datatype='string' name='[PCTNAME]' role='dimension' type='nominal' />
+      <column caption='Shortlabel' datatype='string' name='[SHORTLABEL]' role='dimension' type='nominal' />
+      <column caption='Swcdist' datatype='string' name='[SWCDIST]' role='dimension' type='nominal' />
+      <column caption='Swcdist N' datatype='string' name='[SWCDIST_N]' role='dimension' type='nominal' />
+      <column caption='Shape Area' datatype='real' name='[Shape_Area]' role='measure' type='quantitative' />
+      <column caption='Shape Le 1' datatype='real' name='[Shape_Le_1]' role='measure' type='quantitative' />
+      <column caption='Shape Leng' datatype='real' name='[Shape_Leng]' role='measure' type='quantitative' />
+      <column caption='Vtdid' datatype='string' name='[VTDID]' role='dimension' type='nominal' />
+      <column caption='Ward' datatype='string' name='[WARD]' role='dimension' type='nominal' />
+      <column caption='Congdist' datatype='string' name='[congdist]' role='dimension' type='nominal' />
+      <column caption='Pctcode' datatype='string' default-role='measure' default-type='quantitative' name='[pctcode]' role='dimension' type='nominal' />
+      <column caption='R 2010' datatype='real' name='[r_2010]' role='measure' type='quantitative' />
+      <column caption='R 2012' datatype='real' name='[r_2012]' role='dimension' type='ordinal' />
+      <column caption='R 2014' datatype='real' name='[r_2014]' role='dimension' type='ordinal' />
+      <column caption='R 2016' datatype='real' name='[r_2016]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.391129' measure-ordering='alphabetic' measure-percentage='0.608871' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='SD'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Variation among Precincts across Congressional Districts</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cng2012.shp+ (Multiple Connections)' name='federated.0c9wbrz133addl1ewkdau0tbb8x2' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0c9wbrz133addl1ewkdau0tbb8x2'>
+            <column caption='District' datatype='string' datatype-customized='true' name='[DISTRICT]' role='dimension' type='nominal' />
+            <column datatype='spatial' name='[Geometry]' role='measure' type='nominal' />
+            <column-instance column='[Geometry]' derivation='Collect' name='[clct:Geometry:nk]' pivot='key' type='nominal' />
+            <column-instance column='[DISTRICT]' derivation='None' name='[none:DISTRICT:nk]' pivot='key' type='nominal' />
+            <column-instance column='[sd]' derivation='None' name='[none:sd:qk]' pivot='key' type='quantitative' />
+            <column caption='Sd' datatype='real' name='[sd]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[Longitude (generated)]' field-type='quantitative' max='-9655571.8645972311' min='-11117340.311951831' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[Latitude (generated)]' field-type='quantitative' max='6522311.6571637671' min='5320467.1865636464' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:sd:qk]' max='800.0' min='0.0' palette='green_gold_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:sd:qk]' value='Standard deviation&#10;'>
+              <formatted-text>
+                <run>Standard deviation&#10;</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:sd:qk]' />
+              <text column='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:DISTRICT:nk]' />
+              <lod column='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[clct:Geometry:nk]' />
+              <geometry column='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[clct:Geometry:nk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>Standard deviation:&#9;</run>
+                <run bold='true'>&lt;[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:sd:qk]&gt;</run>
+                <run>Æ&#10;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='user' />
+                <format attr='color' value='#ffffff' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0c9wbrz133addl1ewkdau0tbb8x2].[Latitude (generated)]</rows>
+        <cols>[federated.0c9wbrz133addl1ewkdau0tbb8x2].[Longitude (generated)]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 14'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='9'>District 1</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cg_year_totalvoting (4)' name='federated.0qk8an815g2pjw1dj4g1w1evp0nv' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0qk8an815g2pjw1dj4g1w1evp0nv'>
+            <column caption='Congdist' datatype='integer' name='[congdist]' role='measure' type='quantitative' />
+            <column caption='Edr' datatype='integer' name='[edr]' role='measure' type='quantitative' />
+            <column-instance column='[congdist]' derivation='None' name='[none:congdist:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[year]' derivation='None' name='[none:year:qk]' pivot='key' type='quantitative' />
+            <column caption='Standard Deviation' datatype='real' name='[standard deviation]' role='measure' type='quantitative' />
+            <column-instance column='[edr]' derivation='Sum' name='[sum:edr:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[standard deviation]' derivation='Sum' name='[sum:standard deviation:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[totvoting_res]' derivation='Sum' name='[sum:totvoting_res:qk]' pivot='key' type='quantitative' />
+            <column caption='Totvoting Res' datatype='real' name='[totvoting_res]' role='measure' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:edr:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:totvoting_res:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <sort class='manual' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:edr:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:totvoting_res:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:standard deviation:qk]&quot;</bucket>
+            </dictionary>
+          </sort>
+          <filter class='quantitative' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]' included-values='in-range'>
+            <min>1</min>
+            <max>1</max>
+          </filter>
+          <slices>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]</column>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' field-type='quantitative' major-origin='0' major-spacing='2' scope='cols' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='true' />
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' field-type='quantitative' max='400000.34999999998' min='0.0' range-type='fixed' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='true' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]</rows>
+        <cols>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 14 (2)'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='9'>District 2</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cg_year_totalvoting (4)' name='federated.0qk8an815g2pjw1dj4g1w1evp0nv' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0qk8an815g2pjw1dj4g1w1evp0nv'>
+            <column caption='Congdist' datatype='integer' name='[congdist]' role='measure' type='quantitative' />
+            <column caption='Edr' datatype='integer' name='[edr]' role='measure' type='quantitative' />
+            <column-instance column='[congdist]' derivation='None' name='[none:congdist:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[year]' derivation='None' name='[none:year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[edr]' derivation='Sum' name='[sum:edr:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[totvoting_res]' derivation='Sum' name='[sum:totvoting_res:qk]' pivot='key' type='quantitative' />
+            <column caption='Totvoting Res' datatype='real' name='[totvoting_res]' role='measure' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:edr:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:totvoting_res:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]' included-values='in-range'>
+            <min>2</min>
+            <max>2</max>
+          </filter>
+          <slices>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]</column>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' field-type='quantitative' major-origin='0' major-spacing='2' max='2019' min='2009' range-type='fixed' scope='cols' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='true' />
+            <format attr='height' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' value='56' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]</rows>
+        <cols>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 14 (3)'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='9'>District 3</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cg_year_totalvoting (4)' name='federated.0qk8an815g2pjw1dj4g1w1evp0nv' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0qk8an815g2pjw1dj4g1w1evp0nv'>
+            <column caption='Congdist' datatype='integer' name='[congdist]' role='measure' type='quantitative' />
+            <column caption='Edr' datatype='integer' name='[edr]' role='measure' type='quantitative' />
+            <column-instance column='[congdist]' derivation='None' name='[none:congdist:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[year]' derivation='None' name='[none:year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[edr]' derivation='Sum' name='[sum:edr:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[totvoting_res]' derivation='Sum' name='[sum:totvoting_res:qk]' pivot='key' type='quantitative' />
+            <column caption='Totvoting Res' datatype='real' name='[totvoting_res]' role='measure' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:edr:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:totvoting_res:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]' included-values='in-range'>
+            <min>3</min>
+            <max>3</max>
+          </filter>
+          <slices>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]</column>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' field-type='quantitative' major-origin='0' major-spacing='2' scope='cols' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='true' />
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' field-type='quantitative' max='425457.90000000002' min='0.0' range-type='fixed' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='true' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]</rows>
+        <cols>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 14 (4)'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='9'>District 4</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cg_year_totalvoting (4)' name='federated.0qk8an815g2pjw1dj4g1w1evp0nv' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0qk8an815g2pjw1dj4g1w1evp0nv'>
+            <column caption='Congdist' datatype='integer' name='[congdist]' role='measure' type='quantitative' />
+            <column caption='Edr' datatype='integer' name='[edr]' role='measure' type='quantitative' />
+            <column-instance column='[congdist]' derivation='None' name='[none:congdist:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[year]' derivation='None' name='[none:year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[edr]' derivation='Sum' name='[sum:edr:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[totvoting_res]' derivation='Sum' name='[sum:totvoting_res:qk]' pivot='key' type='quantitative' />
+            <column caption='Totvoting Res' datatype='real' name='[totvoting_res]' role='measure' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:edr:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:totvoting_res:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]' included-values='in-range'>
+            <min>4</min>
+            <max>4</max>
+          </filter>
+          <slices>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]</column>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' field-type='quantitative' major-origin='0' major-spacing='2' scope='cols' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='true' />
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' field-type='quantitative' max='400948.20000000001' min='0.0' range-type='fixed' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='true' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]</rows>
+        <cols>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 14 (5)'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='9'>District 5</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cg_year_totalvoting (4)' name='federated.0qk8an815g2pjw1dj4g1w1evp0nv' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0qk8an815g2pjw1dj4g1w1evp0nv'>
+            <column caption='Congdist' datatype='integer' name='[congdist]' role='measure' type='quantitative' />
+            <column caption='Edr' datatype='integer' name='[edr]' role='measure' type='quantitative' />
+            <column-instance column='[congdist]' derivation='None' name='[none:congdist:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[year]' derivation='None' name='[none:year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[edr]' derivation='Sum' name='[sum:edr:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[totvoting_res]' derivation='Sum' name='[sum:totvoting_res:qk]' pivot='key' type='quantitative' />
+            <column caption='Totvoting Res' datatype='real' name='[totvoting_res]' role='measure' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:edr:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:totvoting_res:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]' included-values='in-range'>
+            <min>5</min>
+            <max>5</max>
+          </filter>
+          <slices>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]</column>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' field-type='quantitative' major-origin='0' major-spacing='2' scope='cols' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='true' />
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' field-type='quantitative' max='400900.0' min='0.0' range-type='fixed' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='true' />
+            <format attr='height' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' value='54' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]</rows>
+        <cols>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 14 (6)'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='9'>District 6</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cg_year_totalvoting (4)' name='federated.0qk8an815g2pjw1dj4g1w1evp0nv' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0qk8an815g2pjw1dj4g1w1evp0nv'>
+            <column caption='Congdist' datatype='integer' name='[congdist]' role='measure' type='quantitative' />
+            <column caption='Edr' datatype='integer' name='[edr]' role='measure' type='quantitative' />
+            <column-instance column='[congdist]' derivation='None' name='[none:congdist:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[year]' derivation='None' name='[none:year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[edr]' derivation='Sum' name='[sum:edr:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[totvoting_res]' derivation='Sum' name='[sum:totvoting_res:qk]' pivot='key' type='quantitative' />
+            <column caption='Totvoting Res' datatype='real' name='[totvoting_res]' role='measure' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:edr:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:totvoting_res:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]' included-values='in-range'>
+            <min>6</min>
+            <max>6</max>
+          </filter>
+          <slices>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]</column>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' field-type='quantitative' major-origin='0' major-spacing='2' scope='cols' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='true' />
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' field-type='quantitative' max='400305.04999999999' min='0.0' range-type='fixed' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='true' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]</rows>
+        <cols>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 14 (7)'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='9'>District 7</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cg_year_totalvoting (4)' name='federated.0qk8an815g2pjw1dj4g1w1evp0nv' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0qk8an815g2pjw1dj4g1w1evp0nv'>
+            <column caption='Congdist' datatype='integer' name='[congdist]' role='measure' type='quantitative' />
+            <column caption='Edr' datatype='integer' name='[edr]' role='measure' type='quantitative' />
+            <column-instance column='[congdist]' derivation='None' name='[none:congdist:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[year]' derivation='None' name='[none:year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[edr]' derivation='Sum' name='[sum:edr:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[totvoting_res]' derivation='Sum' name='[sum:totvoting_res:qk]' pivot='key' type='quantitative' />
+            <column caption='Totvoting Res' datatype='real' name='[totvoting_res]' role='measure' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:edr:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:totvoting_res:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]' included-values='in-range'>
+            <min>7</min>
+            <max>7</max>
+          </filter>
+          <slices>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]</column>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' field-type='quantitative' major-origin='0' major-spacing='2' scope='cols' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='true' />
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' field-type='quantitative' max='400713.20000000001' min='0.0' range-type='fixed' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='true' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]</rows>
+        <cols>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 14 (8)'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='9'>District 8</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cg_year_totalvoting (4)' name='federated.0qk8an815g2pjw1dj4g1w1evp0nv' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0qk8an815g2pjw1dj4g1w1evp0nv'>
+            <column caption='Congdist' datatype='integer' name='[congdist]' role='measure' type='quantitative' />
+            <column caption='Edr' datatype='integer' name='[edr]' role='measure' type='quantitative' />
+            <column-instance column='[congdist]' derivation='None' name='[none:congdist:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[year]' derivation='None' name='[none:year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[edr]' derivation='Sum' name='[sum:edr:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[totvoting_res]' derivation='Sum' name='[sum:totvoting_res:qk]' pivot='key' type='quantitative' />
+            <column caption='Totvoting Res' datatype='real' name='[totvoting_res]' role='measure' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:edr:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[sum:totvoting_res:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]' included-values='in-range'>
+            <min>8</min>
+            <max>8</max>
+          </filter>
+          <slices>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:congdist:qk]</column>
+            <column>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' field-type='quantitative' major-origin='0' major-spacing='2' scope='cols' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]' scope='cols' value='true' />
+            <encoding attr='space' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' field-type='quantitative' max='400016.5' min='0.0' range-type='fixed' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]' scope='rows' value='true' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[Multiple Values]</rows>
+        <cols>[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[none:year:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='TOTVOTING'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' italic='true'>Total Voting</run>
+            <run italic='true'> Ballot Prediction</run>
+            <run> on Congressional District Levels</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cng2012.shp+ (Multiple Connections)' name='federated.0c9wbrz133addl1ewkdau0tbb8x2' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0c9wbrz133addl1ewkdau0tbb8x2'>
+            <column caption='District' datatype='string' datatype-customized='true' name='[DISTRICT]' role='dimension' type='nominal' />
+            <column datatype='spatial' name='[Geometry]' role='measure' type='nominal' />
+            <column-instance column='[DISTRICT]' derivation='Attribute' name='[attr:DISTRICT:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Geometry]' derivation='Collect' name='[clct:Geometry:nk]' pivot='key' type='nominal' />
+            <column caption='Congvotes' datatype='real' name='[congvotes]' role='measure' type='quantitative' />
+            <column-instance column='[DISTRICT]' derivation='None' name='[none:DISTRICT:nk]' pivot='key' type='nominal' />
+            <column-instance column='[congvotes]' derivation='None' name='[none:congvotes:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[Longitude (generated)]' field-type='quantitative' max='-10084248.478291485' min='-10819383.282631055' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[Latitude (generated)]' field-type='quantitative' max='6288539.572805129' min='5312234.0619035643' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:congvotes:qk]' />
+              <tooltip column='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[attr:DISTRICT:nk]' />
+              <text column='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:DISTRICT:nk]' />
+              <lod column='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[clct:Geometry:nk]' />
+              <geometry column='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[clct:Geometry:nk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>Total voters: &lt;[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:congvotes:qk]&gt;&#9;</run>
+                <run>Æ&#10;&#10;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='user' />
+                <format attr='color' value='#ffffff' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0c9wbrz133addl1ewkdau0tbb8x2].[Latitude (generated)]</rows>
+        <cols>[federated.0c9wbrz133addl1ewkdau0tbb8x2].[Longitude (generated)]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Turnout rate'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run italic='true'>&lt;Sheet Name&gt; Prediction </run>
+            <run>on Congressional District Levels</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cng2012.shp+ (Multiple Connections)' name='federated.0c9wbrz133addl1ewkdau0tbb8x2' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0c9wbrz133addl1ewkdau0tbb8x2'>
+            <column caption='District' datatype='string' datatype-customized='true' name='[DISTRICT]' role='dimension' type='nominal' />
+            <column datatype='spatial' name='[Geometry]' role='measure' type='nominal' />
+            <column-instance column='[Geometry]' derivation='Collect' name='[clct:Geometry:nk]' pivot='key' type='nominal' />
+            <column-instance column='[DISTRICT]' derivation='None' name='[none:DISTRICT:nk]' pivot='key' type='nominal' />
+            <column-instance column='[turnout]' derivation='None' name='[none:turnout:qk]' pivot='key' type='quantitative' />
+            <column caption='Turnout' datatype='real' name='[turnout]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[Longitude (generated)]' field-type='quantitative' max='-9688839.8993025087' min='-11097022.761002202' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[Latitude (generated)]' field-type='quantitative' max='6474730.1861480195' min='5253893.2899668533' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:turnout:qk]' min='0.66000000000000003' palette='brown_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:turnout:qk]' />
+              <text column='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:DISTRICT:nk]' />
+              <lod column='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[clct:Geometry:nk]' />
+              <geometry column='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[clct:Geometry:nk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run>&lt;</run>
+                <run>[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:DISTRICT:nk]</run>
+                <run>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='user' />
+                <format attr='color' value='#f5f5f5' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0c9wbrz133addl1ewkdau0tbb8x2].[Latitude (generated)]</rows>
+        <cols>[federated.0c9wbrz133addl1ewkdau0tbb8x2].[Longitude (generated)]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 2'>
+      <style />
+      <size maxheight='768' maxwidth='1366' minheight='768' minwidth='1366' preset-index='0' sizing-mode='fixed' />
+      <zones use-insets='false'>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='97916' id='21' param='horz' type='layout-flow' w='98828' x='586' y='1042'>
+            <zone h='97916' id='5' param='horz' type='layout-flow' w='98828' x='586' y='1042'>
+              <zone h='97916' id='3' type='layout-basic' w='52415' x='586' y='1042'>
+                <zone h='88150' id='32' name='SD' w='52415' x='586' y='1042'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='9766' id='33' name='SD' pane-specification-id='1' param='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:sd:qk]' type='color' w='52415' x='586' y='89192'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone fixed-size='634' h='97916' id='4' is-fixed='true' param='vert' type='layout-flow' w='46413' x='53001' y='1042'>
+                <zone fixed-size='79' forceUpdate='true' h='11328' id='18' is-fixed='true' type='text' w='46413' x='53001' y='1042'>
+                  <formatted-text>
+                    <run fontsize='14'>Congressional District Total Voters  </run>
+                    <run>&#10;(edr not separated for 2018)</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+    <dashboard name='Dashboard 3'>
+      <style />
+      <size maxheight='768' maxwidth='1366' minheight='768' minwidth='1366' preset-index='0' sizing-mode='fixed' />
+      <zones use-insets='false'>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='91927' id='5' param='horz' type='layout-flow' w='98828' x='586' y='7031'>
+            <zone h='91927' id='3' type='layout-basic' w='75841' x='586' y='7031'>
+              <zone h='82758' id='1' name='SD' w='52635' x='586' y='7031'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='21676' id='7' name='Sheet 14' w='20864' x='55563' y='16406'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone forceUpdate='true' h='9375' id='9' type='text' w='20864' x='55563' y='7031'>
+                <formatted-text>
+                  <run fontsize='14'>Congressional District Total Voters  </run>
+                  <run>&#10;(edr not separated for 2018)</run>
+                </formatted-text>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='21392' id='10' name='Sheet 14 (2)' w='20864' x='55563' y='38082'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='19558' id='11' name='Sheet 14 (3)' w='20864' x='55563' y='59474'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='9169' id='6' name='SD' pane-specification-id='1' param='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:sd:qk]' type='color' w='54977' x='586' y='89789'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='19926' id='12' name='Sheet 14 (4)' w='20864' x='55563' y='79032'>
+                <layout-cache minheight='187' minwidth='166' type-h='scalable' type-w='scalable' />
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='82758' id='20' type='empty' w='2342' x='53221' y='7031'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='314' h='91927' id='17' is-fixed='true' type='layout-basic' w='22987' x='76427' y='7031'>
+              <zone h='31051' id='4' param='vert' type='layout-flow' w='22987' x='76427' y='7031'>
+                <zone fixed-size='52' h='7813' id='8' is-fixed='true' name='Sheet 14' pane-specification-id='2' param='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' type='color' w='22987' x='76427' y='7031'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='202' h='23238' id='13' is-fixed='true' name='Sheet 14 (5)' w='22987' x='76427' y='14844'>
+                  <layout-cache minheight='186' minwidth='166' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone h='60876' id='18' param='vert' type='layout-flow' w='22987' x='76427' y='38082'>
+                <zone fixed-size='155' h='21224' id='14' is-fixed='true' name='Sheet 14 (6)' w='22987' x='76427' y='38082'>
+                  <layout-cache minheight='187' minwidth='166' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='164' h='22396' id='15' is-fixed='true' name='Sheet 14 (7)' w='22987' x='76427' y='59306'>
+                  <layout-cache minheight='187' minwidth='166' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='17256' id='16' name='Sheet 14 (8)' w='22987' x='76427' y='81702'>
+                  <layout-cache minheight='187' minwidth='166' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone forceUpdate='true' h='5989' id='19' type='text' w='98828' x='586' y='1042'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontsize='20'>Exploratory Data Analysis</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+    <dashboard name='Prediction'>
+      <style />
+      <size maxheight='768' maxwidth='1366' minheight='768' minwidth='1366' preset-index='0' sizing-mode='fixed' />
+      <zones use-insets='false'>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='93750' id='5' param='horz' type='layout-flow' w='48096' x='586' y='5208'>
+            <zone h='93750' id='3' type='layout-basic' w='48096' x='586' y='5208'>
+              <zone h='84399' id='1' name='TOTVOTING' w='48096' x='586' y='5208'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='9351' id='6' name='TOTVOTING' pane-specification-id='0' param='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:congvotes:qk]' type='color' w='48096' x='586' y='89607'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='83984' id='7' name='Turnout rate' w='50732' x='48682' y='5208'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='9766' id='8' name='Turnout rate' pane-specification-id='0' param='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:turnout:qk]' type='color' w='50732' x='48682' y='89192'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone forceUpdate='true' h='4166' id='9' type='text' w='98828' x='586' y='1042'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontsize='16'>Predictions</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows pres-mode='true' source-height='114'>
+    <window class='worksheet' name='TOTVOTING'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:congvotes:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='SD'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:sd:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='Turnout rate'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0c9wbrz133addl1ewkdau0tbb8x2].[none:turnout:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='dashboard' name='Dashboard 2'>
+      <viewpoints>
+        <viewpoint name='SD'>
+          <zoom type='entire-view' />
+          <default-map-tool-selection tool='1' />
+        </viewpoint>
+        <viewpoint name='Sheet 14'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (2)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (3)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (4)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (5)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (6)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (7)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (8)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='18' />
+    </window>
+    <window class='worksheet' name='Sheet 14'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='Sheet 14 (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='Sheet 14 (3)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='Sheet 14 (4)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='Sheet 14 (5)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='Sheet 14 (6)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='Sheet 14 (7)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='Sheet 14 (8)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0qk8an815g2pjw1dj4g1w1evp0nv].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='dashboard' name='Dashboard 3'>
+      <viewpoints>
+        <viewpoint name='SD'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (2)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (3)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (4)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (5)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (6)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (7)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 14 (8)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='13' />
+    </window>
+    <window class='dashboard' maximized='true' name='Prediction'>
+      <viewpoints>
+        <viewpoint name='TOTVOTING'>
+          <zoom type='entire-view' />
+          <default-map-tool-selection tool='1' />
+        </viewpoint>
+        <viewpoint name='Turnout rate'>
+          <zoom type='entire-view' />
+          <default-map-tool-selection tool='16' />
+        </viewpoint>
+      </viewpoints>
+      <active id='2' />
+    </window>
+  </windows>
+</workbook>
